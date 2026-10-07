@@ -1,0 +1,125 @@
+---
+title: "การทดสอบสมติฐาน น้ำหนักของ penguin สายพันธ์ adellie แตกต่างกันหรือไม่ในทั้ง 3 เกาะ"
+format: html
+editor: visual
+---
+
+```{r}
+#| output: false
+library(tidyverse)
+library(palmerpenguins)
+library(gt)
+```
+
+## ข้อมูลพื้นฐานของ data set
+
+### หน้าตาของข้อมูล 5 แถวแรก
+
+```{r}
+adelie.org <- penguins %>% 
+  select(species, island, body_mass_g, sex) %>% 
+  filter(species == "Adelie")
+
+adelie.org %>% 
+  head(5) %>% 
+  gt()
+```
+
+### คอลัมน์
+
+- Species (`r  unique(adelie.org$species)`)
+- Island (`r unique(adelie.org$island)`)
+- Body_mass_g
+- Sex (`r unique(na.omit(adelie.org)$sex)`)
+
+### จำนวนแถวข้อมูล
+
+```{r}
+adelie.org %>% 
+  nrow()
+```
+
+### missing value
+
+- จำนวนข้อมูลที่ไม่มีทั้งหมด `r sum(is.na(adelie.org))`ช่อง
+- คอลัมน์ที่มีข้อมูล missing values มากที่สุดคือ sex รองลงมาเป็น body_mass_g
+
+```{r}
+colSums(is.na(adelie.org))
+```
+
+## การจัดการกับ missing values
+
+```{r}
+adelie <- adelie.org %>% 
+  drop_na()
+
+round(100 - (nrow(adelie)/nrow(adelie.org))*100, 4)
+```
+
+ข้อมูลมีทั้งหมด 152 แถวหลังจากทำการลบแถวที่มีค่า missing values ออกแล้วจะเหลือ `r nrow(adelie)` แถว ซึ่งคิดเป็น 3.9474 เปอเซ้นของข้อมูลที่เสียไป **จึงตัดสินใจจัดการ missing values ด้วยการลบแถวออก**
+
+## การวิเคราะห์ทางสถิติ
+
+### ข้อมูลสถิติพรรณา
+
+- ข้อมูลสถิติพรรณาแยกตามเกาะ
+
+```{r}
+adelie %>% 
+  summarise(mean = mean(body_mass_g),
+            std = sd(body_mass_g),
+            count = n(),
+            .by = c(island)) %>% 
+  gt()
+
+```
+
+- ข้อมูลสถิติพรรณาที่แยกตามเกาะและเพศ
+
+```{r}
+desc.by.sex.island <- adelie %>% 
+  summarise(mean = mean(body_mass_g),
+            std = sd(body_mass_g),
+            count = n(),
+            .by = c(island,sex)) %>% 
+  as.data.frame()
+
+desc.by.sex.island %>% 
+  gt()
+
+desc.by.sex.island %>% 
+  ggplot(aes(x=island, y=count, fill=sex))+
+  geom_col(position = "dodge")+
+  labs(
+    title = "จำนวนเพนกวินแยกตามเพศ"
+  )+
+  geom_text(
+    aes(label = count),
+    position=position_dodge(width = 0.9),
+    vjust = -0.5
+)+
+  theme_bw()
+
+```
+
+## การกระจายตัวของข้อมูล
+
+```{r}
+
+adelie %>% 
+  ggplot(aes(x=body_mass_g, fill = island))+
+  geom_histogram(binwidth = 200, color='white')+
+  facet_wrap(~ island, scales='free_x')+
+  theme_bw()+
+  labs(title = "Histrogram แสดงการแจกข้อมูล body_mass_g จำแนกตามเกาะ",
+       x = "body_mass_g")
+  
+adelie %>% 
+  ggplot(aes(x=body_mass_g, fill = island))+
+  geom_histogram(binwidth = 100, color='white')+
+  facet_wrap(~ island + sex, scales='free_x')+
+  theme_bw()+
+  labs(title = "Histrogram แสดงการแจกข้อมูล body_mass_g จำแนกตามเกาะและเพศ",
+       x = "body_mass_g")
+```
