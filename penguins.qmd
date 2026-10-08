@@ -11,7 +11,7 @@ library(palmerpenguins)
 library(gt)
 ```
 
-## ข้อมูลพื้นฐานของ data set
+สนใจศึกษาน้ำหนักของ penguins สายพันธ์ adelie ในแต่ละเกาะแตกต่างกันหรือไม่ในทั้ง 3 เกาะ โดยจะทำการเปรียบเทียบแยกตามเกาะและจะนำเพนกวินเพศเดียวกันแต่เกาะต่างกันเท่านั้นมาเปรียบเทียบค่าเฉลี่่ย \## ข้อมูลพื้นฐานของ data set
 
 ### หน้าตาของข้อมูล 5 แถวแรก
 
@@ -22,7 +22,10 @@ adelie.org <- penguins %>%
 
 adelie.org %>% 
   head(5) %>% 
-  gt()
+  gt() %>% 
+  tab_options(
+    table.align = "left"  
+  )
 ```
 
 ### คอลัมน์
@@ -59,25 +62,14 @@ round(100 - (nrow(adelie)/nrow(adelie.org))*100, 4)
 
 ข้อมูลมีทั้งหมด 152 แถวหลังจากทำการลบแถวที่มีค่า missing values ออกแล้วจะเหลือ `r nrow(adelie)` แถว ซึ่งคิดเป็น 3.9474 เปอเซ้นของข้อมูลที่เสียไป **จึงตัดสินใจจัดการ missing values ด้วยการลบแถวออก**
 
-## การวิเคราะห์ทางสถิติ
+## 
 
-### ข้อมูลสถิติพรรณา
-
-- ข้อมูลสถิติพรรณาแยกตามเกาะ
-
-```{r}
-adelie %>% 
-  summarise(mean = mean(body_mass_g),
-            std = sd(body_mass_g),
-            count = n(),
-            .by = c(island)) %>% 
-  gt()
-
-```
+## ข้อมูลสถิติพรรณา
 
 - ข้อมูลสถิติพรรณาที่แยกตามเกาะและเพศ
 
 ```{r}
+#| echo: false
 desc.by.sex.island <- adelie %>% 
   summarise(mean = mean(body_mass_g),
             std = sd(body_mass_g),
@@ -85,8 +77,12 @@ desc.by.sex.island <- adelie %>%
             .by = c(island,sex)) %>% 
   as.data.frame()
 
+
 desc.by.sex.island %>% 
-  gt()
+  gt()%>% 
+  tab_options(
+    table.align = "left"  
+  )
 
 desc.by.sex.island %>% 
   ggplot(aes(x=island, y=count, fill=sex))+
@@ -105,16 +101,10 @@ desc.by.sex.island %>%
 
 ## การกระจายตัวของข้อมูล
 
-```{r}
+### Histrogram
 
-adelie %>% 
-  ggplot(aes(x=body_mass_g, fill = island))+
-  geom_histogram(binwidth = 200, color='white')+
-  facet_wrap(~ island, scales='free_x')+
-  theme_bw()+
-  labs(title = "Histrogram แสดงการแจกข้อมูล body_mass_g จำแนกตามเกาะ",
-       x = "body_mass_g")
-  
+```{r}
+#| echo: false
 adelie %>% 
   ggplot(aes(x=body_mass_g, fill = island))+
   geom_histogram(binwidth = 100, color='white')+
@@ -122,4 +112,22 @@ adelie %>%
   theme_bw()+
   labs(title = "Histrogram แสดงการแจกข้อมูล body_mass_g จำแนกตามเกาะและเพศ",
        x = "body_mass_g")
+```
+
+### การทดสอบการแจกแจงปกติ
+
+ใช้วิธี sharpiro-wilk test ในการตรวจสอบการแจกแจงปกติ
+
+```{r}
+
+adelie %>% 
+  summarise(
+    W = shapiro.test(body_mass_g)$statistic,
+    p_value = shapiro.test(body_mass_g)$p.value,
+            .by= c(island, sex)) %>% 
+  gt() %>% 
+  tab_options(
+    table.align = "left"
+  )
+
 ```

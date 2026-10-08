@@ -109,8 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="ขอมลพนฐานของ-data-set" class="level2">
-<h2 class="anchored" data-anchor-id="ขอมลพนฐานของ-data-set">ข้อมูลพื้นฐานของ data set</h2>
+<p>สนใจศึกษาน้ำหนักของ penguins สายพันธ์ adelie ในแต่ละเกาะแตกต่างกันหรือไม่ในทั้ง 3 เกาะ โดยจะทำการเปรียบเทียบแยกตามเกาะและจะนำเพนกวินเพศเดียวกันแต่เกาะต่างกันเท่านั้นมาเปรียบเทียบค่าเฉลี่่ย ## ข้อมูลพื้นฐานของ data set</p>
 <section id="หนาตาของขอมล-5-แถวแรก" class="level3">
 <h3 class="anchored" data-anchor-id="หนาตาของขอมล-5-แถวแรก">หน้าตาของข้อมูล 5 แถวแรก</h3>
 <div class="cell">
@@ -120,29 +119,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>adelie.org <span class="sc">%&gt;%</span> </span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>(</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">table.align =</span> <span class="st">"left"</span>  </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="qluzbivpbn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qluzbivpbn table {
+<div id="xxnifvjarj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xxnifvjarj table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qluzbivpbn thead, #qluzbivpbn tbody, #qluzbivpbn tfoot, #qluzbivpbn tr, #qluzbivpbn td, #qluzbivpbn th {
+#xxnifvjarj thead, #xxnifvjarj tbody, #xxnifvjarj tfoot, #xxnifvjarj tr, #xxnifvjarj td, #xxnifvjarj th {
   border-style: none;
 }
 
-#qluzbivpbn p {
+#xxnifvjarj p {
   margin: 0;
   padding: 0;
 }
 
-#qluzbivpbn .gt_table {
+#xxnifvjarj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
-  margin-left: auto;
+  margin-left: 0;
   margin-right: auto;
   color: #333333;
   font-size: 16px;
@@ -164,12 +166,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#qluzbivpbn .gt_caption {
+#xxnifvjarj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qluzbivpbn .gt_title {
+#xxnifvjarj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -181,7 +183,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#qluzbivpbn .gt_subtitle {
+#xxnifvjarj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -193,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#qluzbivpbn .gt_heading {
+#xxnifvjarj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -205,13 +207,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#qluzbivpbn .gt_bottom_border {
+#xxnifvjarj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qluzbivpbn .gt_col_headings {
+#xxnifvjarj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -226,7 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#qluzbivpbn .gt_col_heading {
+#xxnifvjarj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -246,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#qluzbivpbn .gt_column_spanner_outer {
+#xxnifvjarj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -258,15 +260,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#qluzbivpbn .gt_column_spanner_outer:first-child {
+#xxnifvjarj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qluzbivpbn .gt_column_spanner_outer:last-child {
+#xxnifvjarj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qluzbivpbn .gt_column_spanner {
+#xxnifvjarj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -278,11 +280,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#qluzbivpbn .gt_spanner_row {
+#xxnifvjarj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qluzbivpbn .gt_group_heading {
+#xxnifvjarj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -308,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#qluzbivpbn .gt_empty_group_heading {
+#xxnifvjarj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -323,15 +325,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#qluzbivpbn .gt_from_md > :first-child {
+#xxnifvjarj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qluzbivpbn .gt_from_md > :last-child {
+#xxnifvjarj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qluzbivpbn .gt_row {
+#xxnifvjarj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -350,7 +352,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#qluzbivpbn .gt_stub {
+#xxnifvjarj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -363,7 +365,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#qluzbivpbn .gt_stub_row_group {
+#xxnifvjarj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -377,15 +379,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#qluzbivpbn .gt_row_group_first td {
+#xxnifvjarj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qluzbivpbn .gt_row_group_first th {
+#xxnifvjarj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qluzbivpbn .gt_summary_row {
+#xxnifvjarj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -395,16 +397,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#qluzbivpbn .gt_first_summary_row {
+#xxnifvjarj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qluzbivpbn .gt_first_summary_row.thick {
+#xxnifvjarj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qluzbivpbn .gt_last_summary_row {
+#xxnifvjarj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -414,7 +416,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#qluzbivpbn .gt_grand_summary_row {
+#xxnifvjarj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -424,7 +426,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#qluzbivpbn .gt_first_grand_summary_row {
+#xxnifvjarj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -434,7 +436,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#qluzbivpbn .gt_last_grand_summary_row_top {
+#xxnifvjarj .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -444,11 +446,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#qluzbivpbn .gt_striped {
+#xxnifvjarj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qluzbivpbn .gt_table_body {
+#xxnifvjarj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -457,7 +459,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#qluzbivpbn .gt_footnotes {
+#xxnifvjarj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -471,7 +473,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#qluzbivpbn .gt_footnote {
+#xxnifvjarj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -480,7 +482,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#qluzbivpbn .gt_sourcenotes {
+#xxnifvjarj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -494,7 +496,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#qluzbivpbn .gt_sourcenote {
+#xxnifvjarj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -502,72 +504,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#qluzbivpbn .gt_left {
+#xxnifvjarj .gt_left {
   text-align: left;
 }
 
-#qluzbivpbn .gt_center {
+#xxnifvjarj .gt_center {
   text-align: center;
 }
 
-#qluzbivpbn .gt_right {
+#xxnifvjarj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qluzbivpbn .gt_font_normal {
+#xxnifvjarj .gt_font_normal {
   font-weight: normal;
 }
 
-#qluzbivpbn .gt_font_bold {
+#xxnifvjarj .gt_font_bold {
   font-weight: bold;
 }
 
-#qluzbivpbn .gt_font_italic {
+#xxnifvjarj .gt_font_italic {
   font-style: italic;
 }
 
-#qluzbivpbn .gt_super {
+#xxnifvjarj .gt_super {
   font-size: 65%;
 }
 
-#qluzbivpbn .gt_footnote_marks {
+#xxnifvjarj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qluzbivpbn .gt_asterisk {
+#xxnifvjarj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qluzbivpbn .gt_indent_1 {
+#xxnifvjarj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qluzbivpbn .gt_indent_2 {
+#xxnifvjarj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qluzbivpbn .gt_indent_3 {
+#xxnifvjarj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qluzbivpbn .gt_indent_4 {
+#xxnifvjarj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qluzbivpbn .gt_indent_5 {
+#xxnifvjarj .gt_indent_5 {
   text-indent: 25px;
 }
 
-#qluzbivpbn .katex-display {
+#xxnifvjarj .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#qluzbivpbn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xxnifvjarj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -652,7 +654,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-</section>
 <section id="การจดการกบ-missing-values" class="level2">
 <h2 class="anchored" data-anchor-id="การจดการกบ-missing-values">การจัดการกับ missing values</h2>
 <div class="cell">
@@ -666,540 +667,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>ข้อมูลมีทั้งหมด 152 แถวหลังจากทำการลบแถวที่มีค่า missing values ออกแล้วจะเหลือ 146 แถว ซึ่งคิดเป็น 3.9474 เปอเซ้นของข้อมูลที่เสียไป <strong>จึงตัดสินใจจัดการ missing values ด้วยการลบแถวออก</strong></p>
 </section>
-<section id="การวเคราะหทางสถต" class="level2">
-<h2 class="anchored" data-anchor-id="การวเคราะหทางสถต">การวิเคราะห์ทางสถิติ</h2>
-<section id="ขอมลสถตพรรณา" class="level3">
-<h3 class="anchored" data-anchor-id="ขอมลสถตพรรณา">ข้อมูลสถิติพรรณา</h3>
-<ul>
-<li>ข้อมูลสถิติพรรณาแยกตามเกาะ</li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(body_mass_g),</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">std =</span> <span class="fu">sd</span>(body_mass_g),</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">count =</span> <span class="fu">n</span>(),</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by =</span> <span class="fu">c</span>(island)) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div id="tlamykbqbm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#tlamykbqbm table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#tlamykbqbm thead, #tlamykbqbm tbody, #tlamykbqbm tfoot, #tlamykbqbm tr, #tlamykbqbm td, #tlamykbqbm th {
-  border-style: none;
-}
-
-#tlamykbqbm p {
-  margin: 0;
-  padding: 0;
-}
-
-#tlamykbqbm .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#tlamykbqbm .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#tlamykbqbm .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#tlamykbqbm .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#tlamykbqbm .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#tlamykbqbm .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#tlamykbqbm .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#tlamykbqbm .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#tlamykbqbm .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#tlamykbqbm .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#tlamykbqbm .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#tlamykbqbm .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#tlamykbqbm .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#tlamykbqbm .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#tlamykbqbm .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#tlamykbqbm .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#tlamykbqbm .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#tlamykbqbm .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#tlamykbqbm .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#tlamykbqbm .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#tlamykbqbm .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#tlamykbqbm .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#tlamykbqbm .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#tlamykbqbm .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#tlamykbqbm .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#tlamykbqbm .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#tlamykbqbm .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#tlamykbqbm .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#tlamykbqbm .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#tlamykbqbm .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#tlamykbqbm .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#tlamykbqbm .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#tlamykbqbm .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#tlamykbqbm .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#tlamykbqbm .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#tlamykbqbm .gt_left {
-  text-align: left;
-}
-
-#tlamykbqbm .gt_center {
-  text-align: center;
-}
-
-#tlamykbqbm .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#tlamykbqbm .gt_font_normal {
-  font-weight: normal;
-}
-
-#tlamykbqbm .gt_font_bold {
-  font-weight: bold;
-}
-
-#tlamykbqbm .gt_font_italic {
-  font-style: italic;
-}
-
-#tlamykbqbm .gt_super {
-  font-size: 65%;
-}
-
-#tlamykbqbm .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#tlamykbqbm .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#tlamykbqbm .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#tlamykbqbm .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#tlamykbqbm .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#tlamykbqbm .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#tlamykbqbm .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#tlamykbqbm .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#tlamykbqbm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_col_headings header">
-<th id="island" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">island</th>
-<th id="mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">mean</th>
-<th id="std" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">std</th>
-<th id="count" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">count</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_center" headers="island">Torgersen</td>
-<td class="gt_row gt_right" headers="mean">3708.511</td>
-<td class="gt_row gt_right" headers="std">451.8464</td>
-<td class="gt_row gt_right" headers="count">47</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="island">Biscoe</td>
-<td class="gt_row gt_right" headers="mean">3709.659</td>
-<td class="gt_row gt_right" headers="std">487.7337</td>
-<td class="gt_row gt_right" headers="count">44</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="island">Dream</td>
-<td class="gt_row gt_right" headers="mean">3701.364</td>
-<td class="gt_row gt_right" headers="std">448.7745</td>
-<td class="gt_row gt_right" headers="count">55</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+</section>
+<section id="ขอมลสถตพรรณา" class="level2">
+<h2 class="anchored" data-anchor-id="ขอมลสถตพรรณา">ข้อมูลสถิติพรรณา</h2>
 <ul>
 <li>ข้อมูลสถิติพรรณาที่แยกตามเกาะและเพศ</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>desc.by.sex.island <span class="ot">&lt;-</span> adelie <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(body_mass_g),</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">std =</span> <span class="fu">sd</span>(body_mass_g),</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">count =</span> <span class="fu">n</span>(),</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by =</span> <span class="fu">c</span>(island,sex)) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>desc.by.sex.island <span class="sc">%&gt;%</span> </span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="bvzsrtpghx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bvzsrtpghx table {
+<div id="kignezhihw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kignezhihw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bvzsrtpghx thead, #bvzsrtpghx tbody, #bvzsrtpghx tfoot, #bvzsrtpghx tr, #bvzsrtpghx td, #bvzsrtpghx th {
+#kignezhihw thead, #kignezhihw tbody, #kignezhihw tfoot, #kignezhihw tr, #kignezhihw td, #kignezhihw th {
   border-style: none;
 }
 
-#bvzsrtpghx p {
+#kignezhihw p {
   margin: 0;
   padding: 0;
 }
 
-#bvzsrtpghx .gt_table {
+#kignezhihw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
-  margin-left: auto;
+  margin-left: 0;
   margin-right: auto;
   color: #333333;
   font-size: 16px;
@@ -1221,12 +719,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-left-color: #D3D3D3;
 }
 
-#bvzsrtpghx .gt_caption {
+#kignezhihw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bvzsrtpghx .gt_title {
+#kignezhihw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1238,7 +736,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-width: 0;
 }
 
-#bvzsrtpghx .gt_subtitle {
+#kignezhihw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1250,7 +748,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-width: 0;
 }
 
-#bvzsrtpghx .gt_heading {
+#kignezhihw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1262,13 +760,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bvzsrtpghx .gt_bottom_border {
+#kignezhihw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bvzsrtpghx .gt_col_headings {
+#kignezhihw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1283,7 +781,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bvzsrtpghx .gt_col_heading {
+#kignezhihw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1303,7 +801,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#bvzsrtpghx .gt_column_spanner_outer {
+#kignezhihw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1315,15 +813,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 4px;
 }
 
-#bvzsrtpghx .gt_column_spanner_outer:first-child {
+#kignezhihw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bvzsrtpghx .gt_column_spanner_outer:last-child {
+#kignezhihw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bvzsrtpghx .gt_column_spanner {
+#kignezhihw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1335,11 +833,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   width: 100%;
 }
 
-#bvzsrtpghx .gt_spanner_row {
+#kignezhihw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bvzsrtpghx .gt_group_heading {
+#kignezhihw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1365,7 +863,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   text-align: left;
 }
 
-#bvzsrtpghx .gt_empty_group_heading {
+#kignezhihw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1380,15 +878,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: middle;
 }
 
-#bvzsrtpghx .gt_from_md > :first-child {
+#kignezhihw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bvzsrtpghx .gt_from_md > :last-child {
+#kignezhihw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bvzsrtpghx .gt_row {
+#kignezhihw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1407,7 +905,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   overflow-x: hidden;
 }
 
-#bvzsrtpghx .gt_stub {
+#kignezhihw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1420,7 +918,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bvzsrtpghx .gt_stub_row_group {
+#kignezhihw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1434,15 +932,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   vertical-align: top;
 }
 
-#bvzsrtpghx .gt_row_group_first td {
+#kignezhihw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bvzsrtpghx .gt_row_group_first th {
+#kignezhihw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bvzsrtpghx .gt_summary_row {
+#kignezhihw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1452,16 +950,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bvzsrtpghx .gt_first_summary_row {
+#kignezhihw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bvzsrtpghx .gt_first_summary_row.thick {
+#kignezhihw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bvzsrtpghx .gt_last_summary_row {
+#kignezhihw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1471,7 +969,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bvzsrtpghx .gt_grand_summary_row {
+#kignezhihw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1481,7 +979,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bvzsrtpghx .gt_first_grand_summary_row {
+#kignezhihw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1491,7 +989,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-top-color: #D3D3D3;
 }
 
-#bvzsrtpghx .gt_last_grand_summary_row_top {
+#kignezhihw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1501,11 +999,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bvzsrtpghx .gt_striped {
+#kignezhihw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bvzsrtpghx .gt_table_body {
+#kignezhihw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1514,7 +1012,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-bottom-color: #D3D3D3;
 }
 
-#bvzsrtpghx .gt_footnotes {
+#kignezhihw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1528,7 +1026,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bvzsrtpghx .gt_footnote {
+#kignezhihw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1537,7 +1035,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bvzsrtpghx .gt_sourcenotes {
+#kignezhihw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1551,7 +1049,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   border-right-color: #D3D3D3;
 }
 
-#bvzsrtpghx .gt_sourcenote {
+#kignezhihw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1559,72 +1057,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   padding-right: 5px;
 }
 
-#bvzsrtpghx .gt_left {
+#kignezhihw .gt_left {
   text-align: left;
 }
 
-#bvzsrtpghx .gt_center {
+#kignezhihw .gt_center {
   text-align: center;
 }
 
-#bvzsrtpghx .gt_right {
+#kignezhihw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bvzsrtpghx .gt_font_normal {
+#kignezhihw .gt_font_normal {
   font-weight: normal;
 }
 
-#bvzsrtpghx .gt_font_bold {
+#kignezhihw .gt_font_bold {
   font-weight: bold;
 }
 
-#bvzsrtpghx .gt_font_italic {
+#kignezhihw .gt_font_italic {
   font-style: italic;
 }
 
-#bvzsrtpghx .gt_super {
+#kignezhihw .gt_super {
   font-size: 65%;
 }
 
-#bvzsrtpghx .gt_footnote_marks {
+#kignezhihw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bvzsrtpghx .gt_asterisk {
+#kignezhihw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bvzsrtpghx .gt_indent_1 {
+#kignezhihw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bvzsrtpghx .gt_indent_2 {
+#kignezhihw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bvzsrtpghx .gt_indent_3 {
+#kignezhihw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bvzsrtpghx .gt_indent_4 {
+#kignezhihw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bvzsrtpghx .gt_indent_5 {
+#kignezhihw .gt_indent_5 {
   text-indent: 25px;
 }
 
-#bvzsrtpghx .katex-display {
+#kignezhihw .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#bvzsrtpghx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#kignezhihw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1687,18 +1185,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>desc.by.sex.island <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>island, <span class="at">y=</span>count, <span class="at">fill=</span>sex))<span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)<span class="sc">+</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"จำนวนเพนกวินแยกตามเพศ"</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> count),</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">position=</span><span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.9</span>),</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>)<span class="sc">+</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="penguins_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="การกระจายตวของขอมล" class="level2">
+<h2 class="anchored" data-anchor-id="การกระจายตวของขอมล">การกระจายตัวของข้อมูล</h2>
+<section id="histrogram" class="level3">
+<h3 class="anchored" data-anchor-id="histrogram">Histrogram</h3>
+<div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1708,39 +1208,523 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-</section>
-<section id="การกระจายตวของขอมล" class="level2">
-<h2 class="anchored" data-anchor-id="การกระจายตวของขอมล">การกระจายตัวของข้อมูล</h2>
+<section id="การทดสอบการแจกแจงปกต" class="level3">
+<h3 class="anchored" data-anchor-id="การทดสอบการแจกแจงปกต">การทดสอบการแจกแจงปกติ</h3>
+<p>ใช้วิธี sharpiro-wilk test ในการตรวจสอบการแจกแจงปกติ</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="sc">%&gt;%</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>body_mass_g, <span class="at">fill =</span> island))<span class="sc">+</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">200</span>, <span class="at">color=</span><span class="st">'white'</span>)<span class="sc">+</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> island, <span class="at">scales=</span><span class="st">'free_x'</span>)<span class="sc">+</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histrogram แสดงการแจกข้อมูล body_mass_g จำแนกตามเกาะ"</span>,</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"body_mass_g"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">W =</span> <span class="fu">shapiro.test</span>(body_mass_g)<span class="sc">$</span>statistic,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_value =</span> <span class="fu">shapiro.test</span>(body_mass_g)<span class="sc">$</span>p.value,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by=</span> <span class="fu">c</span>(island, sex)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_options</span>(</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">table.align =</span> <span class="st">"left"</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="penguins_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div id="pgaqmxuatq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pgaqmxuatq table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#pgaqmxuatq thead, #pgaqmxuatq tbody, #pgaqmxuatq tfoot, #pgaqmxuatq tr, #pgaqmxuatq td, #pgaqmxuatq th {
+  border-style: none;
+}
+
+#pgaqmxuatq p {
+  margin: 0;
+  padding: 0;
+}
+
+#pgaqmxuatq .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: 0;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#pgaqmxuatq .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#pgaqmxuatq .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#pgaqmxuatq .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#pgaqmxuatq .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pgaqmxuatq .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pgaqmxuatq .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#pgaqmxuatq .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#pgaqmxuatq .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#pgaqmxuatq .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#pgaqmxuatq .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#pgaqmxuatq .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#pgaqmxuatq .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#pgaqmxuatq .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#pgaqmxuatq .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#pgaqmxuatq .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#pgaqmxuatq .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#pgaqmxuatq .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#pgaqmxuatq .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pgaqmxuatq .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#pgaqmxuatq .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#pgaqmxuatq .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#pgaqmxuatq .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pgaqmxuatq .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#pgaqmxuatq .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#pgaqmxuatq .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pgaqmxuatq .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pgaqmxuatq .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#pgaqmxuatq .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pgaqmxuatq .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#pgaqmxuatq .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#pgaqmxuatq .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pgaqmxuatq .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pgaqmxuatq .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#pgaqmxuatq .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#pgaqmxuatq .gt_left {
+  text-align: left;
+}
+
+#pgaqmxuatq .gt_center {
+  text-align: center;
+}
+
+#pgaqmxuatq .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#pgaqmxuatq .gt_font_normal {
+  font-weight: normal;
+}
+
+#pgaqmxuatq .gt_font_bold {
+  font-weight: bold;
+}
+
+#pgaqmxuatq .gt_font_italic {
+  font-style: italic;
+}
+
+#pgaqmxuatq .gt_super {
+  font-size: 65%;
+}
+
+#pgaqmxuatq .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#pgaqmxuatq .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#pgaqmxuatq .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#pgaqmxuatq .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#pgaqmxuatq .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#pgaqmxuatq .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#pgaqmxuatq .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#pgaqmxuatq .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#pgaqmxuatq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="island" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">island</th>
+<th id="sex" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">sex</th>
+<th id="W" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">W</th>
+<th id="p_value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p_value</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Torgersen</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_right" headers="W">0.9808073</td>
+<td class="gt_row gt_right" headers="p_value">0.9194391</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Torgersen</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_right" headers="W">0.9615554</td>
+<td class="gt_row gt_right" headers="p_value">0.4704665</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_right" headers="W">0.9345306</td>
+<td class="gt_row gt_right" headers="p_value">0.1524616</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Biscoe</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_right" headers="W">0.9482853</td>
+<td class="gt_row gt_right" headers="p_value">0.2919428</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_center" headers="sex">female</td>
+<td class="gt_row gt_right" headers="W">0.9670305</td>
+<td class="gt_row gt_right" headers="p_value">0.5255758</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="island">Dream</td>
+<td class="gt_row gt_center" headers="sex">male</td>
+<td class="gt_row gt_right" headers="W">0.9778604</td>
+<td class="gt_row gt_right" headers="p_value">0.7964271</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>body_mass_g, <span class="at">fill =</span> island))<span class="sc">+</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">100</span>, <span class="at">color=</span><span class="st">'white'</span>)<span class="sc">+</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> island <span class="sc">+</span> sex, <span class="at">scales=</span><span class="st">'free_x'</span>)<span class="sc">+</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Histrogram แสดงการแจกข้อมูล body_mass_g จำแนกตามเกาะและเพศ"</span>,</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"body_mass_g"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="penguins_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
 </div>
-</div>
-</div>
+</section>
 </section>
 
 </main>
