@@ -13,7 +13,9 @@ library(car)
 library(broom)
 ```
 
-สนใจศึกษาน้ำหนักของ penguins สายพันธ์ adelie ในแต่ละเกาะแตกต่างกันหรือไม่ในทั้ง 3 เกาะ โดยจะทำการเปรียบเทียบแยกตามเกาะและจะนำเพนกวินเพศเดียวกันแต่เกาะต่างกันเท่านั้นมาเปรียบเทียบค่าเฉลี่่ย \## ข้อมูลพื้นฐานของ data set
+สนใจศึกษาน้ำหนักของ penguins สายพันธ์ adelie ในแต่ละเกาะแตกต่างกันหรือไม่ในทั้ง 3 เกาะ โดยจะทำการเปรียบเทียบแยกตามเกาะและจะนำเพนกวินเพศเดียวกันแต่เกาะต่างกันเท่านั้นมาเปรียบเทียบค่าเฉลี่่ย
+
+## ข้อมูลพื้นฐานของ data set
 
 ### โครงสร้างชุดข้อมูล
 
@@ -41,7 +43,7 @@ adelie.org %>%
   nrow()
 ```
 
-### missing value
+## missing value
 
 - จำนวนข้อมูลที่ไม่มีทั้งหมด `r sum(is.na(adelie.org))`ช่อง
 - คอลัมน์ที่มีข้อมูล missing values มากที่สุดคือ sex รองลงมาเป็น body_mass_g
@@ -50,7 +52,7 @@ adelie.org %>%
 colSums(is.na(adelie.org))
 ```
 
-## การจัดการกับ missing values
+### การจัดการกับ missing values
 
 ```{r}
 adelie <- adelie.org %>% 
@@ -60,8 +62,6 @@ round(100 - (nrow(adelie)/nrow(adelie.org))*100, 4)
 ```
 
 ข้อมูลมีทั้งหมด 152 แถวหลังจากทำการลบแถวที่มีค่า missing values ออกแล้วจะเหลือ `r nrow(adelie)` แถว ซึ่งคิดเป็น 3.9474 เปอเซ้นของข้อมูลที่เสียไป **จึงตัดสินใจจัดการ missing values ด้วยการลบแถวออก**
-
-## 
 
 ## ข้อมูลสถิติพรรณา
 
@@ -99,8 +99,6 @@ desc.by.sex.island %>%
 ```
 
 ## การกระจายตัวของข้อมูล
-
-### QQ-plot
 
 ```{r}
 #| echo: false
@@ -143,6 +141,29 @@ adelie %>%
 
 ## การทดสอบความเท่ากันของความแปรปรวน
 
+การทดสอบความเท่ากันของความแปรปรวนระหว่างตัวผู้และตัวเมียในเกาะเดียวกันในแต่ละเกาะ
+
+```{r, message=FALSE, warning=FALSE}
+ftest.mf <- function(isl) {
+return(
+  adelie %>% 
+  filter(island == isl) %>% 
+  { var.test(body_mass_g ~ sex,data=.)} %>% 
+  tidy()
+)
+  
+}
+
+c("Torgersen", "Dream", "Biscoe") %>%
+  set_names() %>%
+  map_dfr(ftest.mf, .id = "island") %>% 
+select(-c(method, conf.low, conf.high)) %>% 
+  mutate(island = c('Torgersen', 'Dream', 'Biscoe')) %>% 
+  select(island, everything()) %>% 
+  gt() %>% 
+  tab_options(table.align = "left")
+```
+
 **การทดสอบความแปรปรวนในกลุ่มเพศผู้**
 
 $H_0$ ความแปรปรวน body_mass_g ของเพนกวินสายพันธ์ Adelie ในเพศผู้ในแต่ละเกาะมีความแปรปรวนเท่ากัน
@@ -162,27 +183,97 @@ adelie %>%
 <br>
 
 **การทดสอบความแปรปรวนในกลุ่มเพศเมีย**
+
 ```{r}
+
 adelie %>% 
   filter(sex=="female") %>% 
   { leveneTest(body_mass_g ~ island, data = .) } %>% 
   tidy()
 
 ```
+
 หลังจากที่เรารู้แล้วว่ามีความแปรรวนอย่างน้อย 1 ตัวไม่เท่ากับความแปรปรวนของกลุ่มอื่นดังนั้นจะใช้การทดสอบความเท่ากันของความแปรปรวน F-test ในการตรวจว่าความแปรปรวนในกลุ่มไหนที่ไม่เหมือนกัน
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 
+pair.ftest.adelie <- function(var1, var2) {
+  return(
+    adelie %>% 
+  filter(sex == "female", island %in% c(var1, var2)) %>% 
+  {var.test(body_mass_g ~ island,data=.)} %>% 
+  tidy()
+  )
+}
 
-
+rbind(
+pair.ftest.adelie("Torgersen", "Dream"),
+pair.ftest.adelie("Torgersen", "Biscoe"),
+pair.ftest.adelie("Dream", "Biscoe")
+) %>% 
+  select(-c(method, conf.low, conf.high)) %>% 
+  mutate(island = c('Torgersen vs Dream', 'Torgersen vs Biscoe', 'Dream vs Biscoe')) %>% 
+  select(island, everything()) %>% 
+  gt() %>% 
+  tab_options(table.align = "left")
 
 ```
 
+## การทดสอบค่าเฉลี่ยของน้ำหนักตัว
 
-## การทบสอบค่าเฉลี่ยระหว่างตัวผู้และตัวเมียในแต่ละเกาะ
+- ก่อนจะไปทำการทดสอบว่าค่าเฉลี่ยเพนกวินในแต่ละเกาะต่างกันไหม จะทำการตรวจสอบว่าค่าเฉลี่ยน้ำหนักของตัวผู้และตัวเมียแตกต่างกันหรือไม่ เพื่อตัดสินใจที่จะเปรียบเทียบรวมทั้งเพศเมียและเพศผู้ด้วยเลย เมื่อค่าเฉลี่ยของตัวผู้และตัวเมียในแต่ละเกาะไม่แตกต่างกัน แต่ถ้าค่าเฉลี่ยของตัวผู้และตัวเมียแตกต่างกัน จะทำการเปรียบเทียบแบบแต่ละเกาะแต่ แยกเพศ
 
-- ก่อนจะไปทำการทดสอบว่าค่าเฉลี่ยเพนกวินในแต่ละเกาะต่างกันไหม จะทำการตรวจสอบว่าค่าเฉลี่ยน้ำหนักของตัวผู้และตัวเมียแตกต่างกันหรือไม่ เพื่อตัดสินใจที่จะเปรียบเทียบรวมทั้งเพศเมียและเพศผู้ด้วยเลย เมื่อค่าเฉลี่ยของตัวผู้และตัวเมียในแต่ละเกาะไม่แตกต่างกัน แต่ถ้าค่าเฉลี่ยของตัวผู้และตัวเมียแตกต่างกัน จะทำการเปรียบเทียบแบบแต่ละเกาะแต่แยกเพศ
+**จากการทดสอบการแจกแจงปกติและความเท่ากันของความแปรปรวนทำให้เรารู้ว่า**
+
+- การแจงแจงของทุกกลุ่มมีการแจกแจงปกติ
+
+- ความแปรปรวนในเพศผู้แต่คนละเกาะเท่ากันในทั้ง 3 เกาะ แต่สำหรับเพศเมียมี 2 คู่ที่ความแปรปรวนเท่ากันคือ เกาะ Torgersen Dream และ Torgersen Biscoe ส่วนคู่ที่ไม่เท่ากันคือ Dream biscoe
+
+### การทดสอบความเท่ากันของค่าเฉลี่ยระหว่างเพนกวินเพศผู้และเพนกวินเพศเมียในเกาะเดียวกัน
+
+- การแจกแจงของทุกกลุ่มที่จะนำมาเปรียบเทียบเป็นการแจกแจงปกติ
+
+- ความเท่ากันของความแปรปรวนระหว่างเพนกวินเพศผู้และเพศเมียในเกาะเดียวกันมีความแปรปรวนเท่ากันยกเว้นเกาะ Dream ที่มีความแปรปรวนไม่เท่ากันระหว่างเพนกวินเพศผู้และเพศเมีย
+
+สำหรับวิธีการเปรียบเทียบค่าเฉลี่ย
+
+- t-test ความแปรปรวนเท่ากันสำหรับเกาะ Torgersen และ Biscoe
+
+- t-test ความแปรวปรวนไม่เท่ากันสำหรับเกาะ Dream
+
+```{r}
+t.test.mf <- function(isl, var.e=F) {
+male.m <- adelie %>% 
+  filter(island == isl, sex=='male') %>% 
+  select(body_mass_g)
+
+female.m <- adelie %>% 
+  filter(island == isl, sex=="female") %>% 
+  select(body_mass_g)
+
+result <- t.test(male.m, female.m, var.equal=var.e, alternative="two.sided") %>% 
+  tidy()
+
+return(result)
+}
+
+rbind(
+t.test.mf("Torgersen", var.e=TRUE),
+t.test.mf("Biscoe", var.e=TRUE),
+t.test.mf("Dream", var.e=FALSE)
+) %>% 
+  select(-c(estimate, estimate1, estimate2, alternative)) %>% 
+  gt()
+
+```
 
 ```{r}
 
+### compare mean anova male
+
+aov(body_mass_g ~ island, data = adelie %>% 
+      filter(sex=='male')) %>% 
+  summary()
+
+?aov
 ```
