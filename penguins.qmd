@@ -9,10 +9,12 @@ toc: true
 ```{r}
 #| output: false
 library(tidyverse)
+library(magrittr)
 library(palmerpenguins)
 library(gt)
 library(car)
 library(broom)
+library(scales)
 ```
 
 สนใจศึกษาน้ำหนักของ penguins สายพันธ์ Adelie ในแต่ละเกาะแตกต่างกันหรือไม่ในทั้ง 3 เกาะ โดยจะทำการเปรียบเทียบแยกตามเกาะและจะนำเพนกวินเพศเดียวกันแต่เกาะต่างกันเท่านั้นมาเปรียบเทียบค่าเฉลี่่ย
@@ -121,7 +123,9 @@ adelie %>%
 
 ### การทดสอบการแจกแจงปกติ
 
-ใช้การทดสอบของ Shapiro-Wilk กำหนดระดับนัยสำคัญ $\alpha = 0.05$ $$
+ใช้การทดสอบของ Shapiro-Wilk กำหนดระดับนัยสำคัญ $\alpha = 0.05$
+
+$$
 \begin{aligned}
 H_0 &: \text{น้ำหนักตัวของเพนกวิน Adelie ทุกกลุ่มย่อยมีการแจกแจงปกติ} \\
 H_1 &: \text{มีอย่างน้อย 1 กลุ่มที่การแจกแจงไม่เป็นแบบปกติ}
@@ -141,13 +145,15 @@ adelie %>%
   
 ```
 
+::: callout-note
 จากตารางที่ 1 พบว่าทุกกลุ่มมีค่า p-value มากกว่า 0.05 จึงไม่ปฏิเสธ $H_0$ สรุปได้ว่าน้ำหนักตัวของเพนกวิน Adelie ในทุกกลุ่มย่อยมีการแจกแจงปกติ
+:::
 
 <br>
 
 ### การทดสอบความเท่ากันของความแปรปรวน
 
-การทดสอบความเท่ากันของความแปรปรวนระหว่างตัวผู้และตัวเมียในเกาะเดียวกันในแต่ละเกาะ กำหนด$\alpha = 0.05$
+1.  **การทดสอบความเท่ากันของความแปรปรวนระหว่างตัวผู้และตัวเมียในเกาะเดียวกันในแต่ละเกาะ** $\text{กำหนด }\alpha = 0.05$
 
 $$
 \begin{aligned}
@@ -159,6 +165,7 @@ $$
 ```{r, message=FALSE, warning=FALSE}
 #| label: tbl-F-test
 #| tbl-cap: "ผลการทดสอบ F-test  ของ body_mass_g เพนกวินสายพันธ์ Adelie ตัวผู้และตัวเมีย ในเกาะเดียวกันทุกเกาะ"
+
 ftest.mf <- function(isl) {
 return(
   adelie %>% 
@@ -169,26 +176,31 @@ return(
   
 }
 
-c("Torgersen", "Dream", "Biscoe") %>%
-  set_names() %>%
+c(Torgersen = "Torgersen", Dream = "Dream", Biscoe = "Biscoe") %>% 
   map_dfr(ftest.mf, .id = "island") %>% 
 select(-c(method, conf.low, conf.high)) %>% 
-  mutate(island = c('Torgersen', 'Dream', 'Biscoe')) %>% 
   select(island, everything()) %>% 
   gt()
 
 
 ```
 
-จากการทดสอบ ftest-test พบว่า p-value ของเกาะ Torgersen และ Biscoe มากกว่า 0.05 ยกเว้นเกาะ Dream *ดังนั้นจึงตัดสินใจปฏิเสธสมติฐานหลักและยอมรับสมติฐานแย้ง*ความแปรปรวน body_mass_g ของเพนกวินสายพันธ์ Adelie ตัวผู้และตัวเมีย ในเกาะเดียวกัน มีอย่างน้อย 1 กลุ่มที่แตกต่างกัน นั้นก็คือเกาะ Dream
+::: callout-note
+จากการทดสอบ F-test พบว่า p-value ของเกาะ Torgersen และ Biscoe มากกว่า 0.05 ยกเว้นเกาะ Dream ดังนั้นจึงตัดสินใจปฏิเสธสมติฐานหลักและยอมรับสมติฐานแย้งความแปรปรวน body_mass_g ของเพนกวินสายพันธ์ Adelie ตัวผู้และตัวเมีย ในเกาะเดียวกัน มีอย่างน้อย 1 กลุ่มที่แตกต่างกัน นั้นก็คือเกาะ Dream
+:::
 
 <br>
 
 **การทดสอบความแปรปรวนในกลุ่มเพศผู้**
 
-$H_0$ ความแปรปรวน body_mass_g ของเพนกวินสายพันธ์ Adelie ในเพศผู้ในแต่ละเกาะมีความแปรปรวนเท่ากัน
+$\text{กำหนด } \alpha = 0.05$
 
-$H_1$ ความแปรปรวน body_mass_g ของเพนกวินสายพันธ์ Adelie ในเพศผู้ในแต่ละเกาะมีความแปรปรวนไม่เท่ากัน
+$$
+\begin{aligned}
+H_0 &: \text{ความแปรปรวน body\_mass\_g ของเพนกวินสายพันธ์ Adelie ในเพศผู้ในแต่ละเกาะมีความแปรปรวนเท่ากัน} \\
+H_1 &: \text{ความแปรปรวน body\_mass\_g ของเพนกวินสายพันธ์ Adelie ในเพศผู้ในแต่ละเกาะมีความแปรปรวนไม่เท่ากัน}
+\end{aligned}
+$$
 
 ```{r}
 adelie %>% 
@@ -202,11 +214,14 @@ adelie %>%
 
 <br>
 
-**การทดสอบความแปรปรวนในกลุ่มเพศเมีย**
+การทดสอบความแปรปรวนในกลุ่มเพศเมีย กำหนดระดับสำคัญ 0.05
 
-$H_0$ ความแปรปรวน body_mass_g ของเพนกวินสายพันธ์ Adelie ในเพศเมียในแต่ละเกาะมีความแปรปรวนเท่ากัน
-
-$H_1$ ความแปรปรวน body_mass_g ของเพนกวินสายพันธ์ Adelie ในเพศเมียในแต่ละเกาะมีความแปรปรวนไม่เท่ากัน
+$$
+\begin{aligned}
+H_0 &: \text{ความแปรปรวน body\_mass\_g ของเพนกวินสายพันธ์ Adelie ในเพศเมียในแต่ละเกาะมีความแปรปรวนเท่ากัน} \\
+H_1 &: \text{ความแปรปรวน body\_mass\_g ของเพนกวินสายพันธ์ Adelie ในเพศเมียในแต่ละเกาะมีความแปรปรวนไม่เท่ากัน}
+\end{aligned}
+$$
 
 ```{r}
 
@@ -277,6 +292,17 @@ map2_dfr(
 
 - t-test ความแปรวปรวนไม่เท่ากันสำหรับเกาะ Dream
 
+<br>
+
+$\text{ กำหนด } \alpha = 0.05$
+
+$$
+\begin{aligned}
+H_0 :& \text{ ค่าเฉลี่ย body\_mass\_g ทุกคู่ของเพศเมียเและเพศผู้ในเกาะเดียวกันไม่แตกต่างกัน} \\
+H_1 :& \text{ ค่าเฉลี่ย body\_mass\_g อย่างน้อย 1 คู่ ของเพศเมียเและเพศผู้ในเกาะเดียวกันแตกต่างกัน}
+\end{aligned}
+$$
+
 ```{r}
 t.test.mf <- function(isl, var.e=F) {
 male.m <- adelie %>% 
@@ -302,12 +328,17 @@ map2_dfr(
 ) %>% 
   select(-c(estimate, estimate1, estimate2, conf.low, conf.high)) %>% 
   mutate(
-    island = c("Torgersen", "Biscoe", "Dream")
+    island = c("Torgersen", "Biscoe", "Dream"),
+    p.value = pvalue(p.value)
   ) %>% 
-  select(island, everything())
+  select(island, everything()) %>% 
+  gt()
+
 
 
 ```
+
+จากการทดสอบค่าเฉลี่ยนด้วย t-test สรุปได้ว่า p-value ของทุกกลุ่มมีค่าน้อยกว่า 0.05 ดังนั้นจึงทำการปฏิเสธสมติฐานหลัก และสรุปได้ว่า ค่าเฉลี่ย body_body_mass อย่างน้อย 1 คู่ ของเพศเมียเและเพศผู้ในเกาะเดียวกันแตกต่างกัน ที่ระดับนัยยะสำคัญ 0.05
 
 ## การทดสอบสมติฐานหลัก
 
@@ -315,9 +346,16 @@ map2_dfr(
 
 ### compare mean anova male
 
-aov(body_mass_g ~ island, data = adelie %>% 
-      filter(sex=='male')) %>% 
+adelie %>% 
+  filter(sex=="male") %$%
+  aov(body_mass_g ~ island) %>%
   summary()
 
-?aov
+```
+
+```{r}
+adelie %>% 
+  filter(sex=="female") %$%
+  oneway.test(body_mass_g ~ island, var.equal = FALSE)
+
 ```
