@@ -225,6 +225,8 @@
 <h2>ข้อมูลพื้นฐานของ dataset</h2>
 <p><br></p>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="" aria-label="1"></a>adelie.org <span class="sc">%&gt;%</span> </span>
+<span id="cb1-2"><a href="" aria-label="2"></a> <span class="fu">glimpse</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 152
 Columns: 4
@@ -249,7 +251,7 @@ $ sex         &lt;fct&gt; male, female, female, NA, female, male, female, male, 
 <h2>Missing Values</h2>
 <p><br></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="" aria-label="1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(adelie.org))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="" aria-label="1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(adelie.org))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    species      island body_mass_g         sex 
           0           0           1           6 </code></pre>

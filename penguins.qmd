@@ -406,16 +406,30 @@ map2_dfr(
 
 ## การทดสอบสมติฐานหลัก
 
-```{r}
+### การทดสอบความเท่ากันของค่าเฉลี่ยของ body_mass_g ของเพนกวินสายพันธ์ Adelie เพศผู้ของเกาะ Torgersen Dream และ Biscoe
 
-### compare mean anova male
+\begin{aligned}
+
+H_0 &: \mu_{ตัวผู้, Torgersen}=\mu_{ตัวผู้, Dream}=\mu_{ตัวผู้ , Beiscoe}\\
+H_1 &: \text{ มีอย่างน้อย 1 กลุ่มที่แตกต่างกัน}
+
+\end{aligned}
+
+```{r}
 
 adelie %>% 
   filter(sex=="male") %$%
-  aov(body_mass_g ~ island) %>%
-  summary()
-
+  aov(body_mass_g ~ island)
 ```
+
+<br>
+
+\begin{aligned}
+
+H_0 &: \mu_{ตัวเมีย, Torgersen}=\mu_{ตัวเมีย, Dream}=\mu_{ตัวเมีย , Beiscoe}\\
+H_1 &: \text{ มีอย่างน้อย 1 กลุ่มที่แตกต่างกัน}
+
+\end{aligned}
 
 ```{r}
 adelie %>% 

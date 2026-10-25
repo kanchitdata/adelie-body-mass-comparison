@@ -39,14 +39,17 @@ library(scales)
 
 ## ข้อมูลพื้นฐานของ dataset
 
-<br>
 
 ```{r}
 #| echo: false
 adelie.org <- penguins %>% 
   select(species, island, body_mass_g, sex) %>% 
   filter(species == "Adelie")
+```
 
+<br>
+```{r}
+#| echo: true
 adelie.org %>% 
  glimpse()
 ```
