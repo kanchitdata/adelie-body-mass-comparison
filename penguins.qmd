@@ -1,5 +1,5 @@
 ---
-title: "การทดสอบสมติฐาน น้ำหนักของ penguin สายพันธ์ adellie แตกต่างกันหรือไม่ในทั้ง 3 เกาะ"
+title: "การทดสอบสมมติฐาน น้ำหนักของ penguin สายพันธุ์ adellie แตกต่างกันหรือไม่ในทั้ง 3 เกาะ"
 format: html
 editor: visual
 code-fold: true
@@ -9,7 +9,6 @@ toc: true
 ```{r}
 #| output: false
 library(tidyverse)
-library(magrittr)
 library(palmerpenguins)
 library(gt)
 library(car)
@@ -17,20 +16,19 @@ library(broom)
 library(scales)
 ```
 
-สนใจศึกษาน้ำหนักของ penguins สายพันธ์ Adelie ในแต่ละเกาะแตกต่างกันหรือไม่ในทั้ง 3 เกาะ โดยจะทำการเปรียบเทียบแยกตามเกาะและจะนำเพนกวินเพศเดียวกันแต่เกาะต่างกันเท่านั้นมาเปรียบเทียบค่าเฉลี่่ย
+สนใจศึกษาน้ำหนักของ penguins สายพันธุ์ Adelie ในแต่ละเกาะแตกต่างกันหรือไม่ในทั้ง 3 เกาะ โดยจะทำการเปรียบเทียบแยกตามเกาะและจะนำเพนกวินเพศเดียวกันแต่เกาะต่างกันเท่านั้นมาเปรียบเทียบค่าเฉลี่่ย
 
 ## ข้อมูลพื้นฐานของ data set
 
 ### โครงสร้างชุดข้อมูล
 
 ```{r}
-adelie.org <- penguins %>% 
-  select(species, island, body_mass_g, sex) %>% 
+adelie.org <- penguins %>%
+  select(species, island, body_mass_g, sex) %>%
   filter(species == "Adelie")
 
-adelie.org %>% 
- glimpse()
-
+adelie.org %>%
+  glimpse()
 ```
 
 ### คอลัมน์
@@ -43,7 +41,7 @@ adelie.org %>%
 ### จำนวนแถวข้อมูล
 
 ```{r}
-adelie.org %>% 
+adelie.org %>%
   nrow()
 ```
 
@@ -59,13 +57,13 @@ colSums(is.na(adelie.org))
 ### การจัดการกับ missing values
 
 ```{r}
-adelie <- adelie.org %>% 
+adelie <- adelie.org %>%
   drop_na()
 
-round(100 - (nrow(adelie)/nrow(adelie.org))*100, 4)
+round(100 - (nrow(adelie) / nrow(adelie.org)) * 100, 2)
 ```
 
-ข้อมูลมีทั้งหมด 152 แถวหลังจากทำการลบแถวที่มีค่า missing values ออกแล้วจะเหลือ `r nrow(adelie)` แถว ซึ่งคิดเป็น 3.9474 เปอเซ้นของข้อมูลที่เสียไป **จึงตัดสินใจจัดการ missing values ด้วยการลบแถวออก**
+ข้อมูลมีทั้งหมด `r nrow(adelie.org)` แถว หลังจากทำการลบแถวที่มีค่า missing values ออกแล้วจะเหลือ `r nrow(adelie)` แถว ซึ่งคิดเป็น `r round(100 - (nrow(adelie) / nrow(adelie.org)) * 100, 2)` เปอเซ็นของข้อมูลที่เสียไป **จึงตัดสินใจจัดการ missing values ด้วยการลบแถวออก**
 
 ## ข้อมูลสถิติพรรณา
 
@@ -73,16 +71,17 @@ round(100 - (nrow(adelie)/nrow(adelie.org))*100, 4)
 #| label: tbl-descriptive
 #| tbl-cap: "ข้อมูลสถิติพรรณาที่แยกตามเกาะ"
 
-
-desc.by.sex.island <- adelie %>% 
-  summarise(mean = mean(body_mass_g),
-            std = sd(body_mass_g),
-            count = n(),
-            .by = c(island,sex)) %>% 
+desc.by.sex.island <- adelie %>%
+  summarise(
+    mean = mean(body_mass_g),
+    std = sd(body_mass_g),
+    count = n(),
+    .by = c(island, sex)
+  ) %>%
   as.data.frame()
 
 
-desc.by.sex.island %>% 
+desc.by.sex.island %>%
   gt()
 ```
 
@@ -90,14 +89,14 @@ desc.by.sex.island %>%
 #| label: fig-count-bar 
 #| fig-cap: "จำนวนเพนกวินแยกตามเพศ"
 
-desc.by.sex.island %>% 
-  ggplot(aes(x=island, y=count, fill=sex))+
-  geom_col(position = "dodge")+
+desc.by.sex.island %>%
+  ggplot(aes(x = island, y = count, fill = sex)) +
+  geom_col(position = "dodge") +
   geom_text(
     aes(label = count),
-    position=position_dodge(width = 0.9),
+    position = position_dodge(width = 0.9),
     vjust = -0.5
-  )+
+  ) +
   theme_bw()
 ```
 
@@ -107,15 +106,26 @@ desc.by.sex.island %>%
 #| label: fig-qq-plot
 #| fig-cap: "QQ-Plot แสดงการแจกแจงของข้อมูล body_mass_g จำแนกตามเกาะและเพศ"
 
-adelie %>% 
-  ggplot(aes(sample=body_mass_g, colour = island))+
-  stat_qq()+
-  stat_qq_line(colour ='black')+
-  facet_wrap(~ island + sex, scales="free_y")+
+adelie %>%
+  ggplot(aes(sample = body_mass_g, colour=island)) +
+  stat_qq() +
+  stat_qq_line(colour = 'black') +
+  facet_wrap(~ island + sex, scales = "free_y") +
   theme_bw()
 ```
+```{r}
+#| label: fig-box-plot
+#| fig-cap: "Box-Plot เปรียบระหว่างเกาะในแต่ละเพศ"
+ 
+adelie %>% 
+  ggplot(aes(x= island, y= body_mass_g, fill=island)) +
+  geom_boxplot() +
+  facet_wrap(~sex, scales="free_y")+
+  theme_bw()
 
-## การทดสอบสมติฐานเบื้องต้น
+```
+
+## การทดสอบสมมติฐานเบื้องต้น
 
 ### การทดสอบการแจกแจงปกติ
 
@@ -132,17 +142,17 @@ $$
 #| label: tbl-shapiro
 #| tbl-cap: "ผลการทดสอบ Shapiro-Wilk จำแนกตามเกาะและเพศ"
 
-adelie %>% 
+adelie %>%
   summarise(
     W = shapiro.test(body_mass_g)$statistic,
     p_value = shapiro.test(body_mass_g)$p.value,
-            .by= c(island, sex)) %>% 
-  gt() 
-  
+    .by = c(island, sex)
+  ) %>%
+  gt()
 ```
 
 ::: {.callout-note appearance="minimal" icon="false"}
-**สรุปผล** พบว่าทุกกลุ่มมีค่า p-value มากกว่า 0.05 จึงไม่ปฏิเสธ $H_0$ สรุปได้ว่าน้ำหนักตัวของเพนกวิน Adelie ในทุกกลุ่มย่อยมีการแจกแจงปกติ
+**สรุปผล** พบว่าทุกกลุ่มมีค่า p-value มากกว่า 0.05 จึงไม่ปฏิเสธสมมติฐาน สรุปได้ว่าน้ำหนักตัวของเพนกวิน Adelie ในทุกกลุ่มย่อยมีการแจกแจงปกติ
 :::
 
 <br>
@@ -168,26 +178,25 @@ H_{13} &: \sigma^2_{\text{ผู้, Biscoe}} \neq \sigma^2_{\text{เมีย,
 $$
 
 ```{r, message=FALSE, warning=FALSE}
-#| label: tbl-F-test
-#| tbl-cap: "ผลการทดสอบ F-test  ของ body_mass_g เพนกวินสายพันธ์ Adelie ตัวผู้และตัวเมีย ในเกาะเดียวกันทุกเกาะ"
+#| label: tbl-F-test-male-vs-female-same-island
+#| tbl-cap: "ผลการทดสอบ F-test  ของ body_mass_g เพนกวินสายพันธุ์ Adelie ตัวผู้และตัวเมีย ในเกาะเดียวกันทุกเกาะ"
 
 ftest.mf <- function(isl) {
-return(
-  adelie %>% 
-  filter(island == isl) %>% 
-  { var.test(body_mass_g ~ sex,data=.)} %>% 
-  tidy()
-)
-  
+  return(
+    adelie %>%
+      filter(island == isl) %>%
+      {
+        var.test(body_mass_g ~ sex, data = .)
+      } %>%
+      tidy()
+  )
 }
 
-c(Torgersen = "Torgersen", Dream = "Dream", Biscoe = "Biscoe") %>% 
-  map_dfr(ftest.mf, .id = "island") %>% 
-select(-c(method, conf.low, conf.high, alternative)) %>% 
-  select(island, everything()) %>% 
+c(Torgersen = "Torgersen", Dream = "Dream", Biscoe = "Biscoe") %>%
+  map_dfr(ftest.mf, .id = "island") %>%
+  select(-c(method, conf.low, conf.high, alternative)) %>%
+  select(island, everything()) %>%
   gt()
-
-
 ```
 
 ::: {.callout-note appearance="minimal" icon="false"}
@@ -195,7 +204,7 @@ select(-c(method, conf.low, conf.high, alternative)) %>%
 
 **จึงทำการตัดสินใจ:**
 
-- **ยอมรับ** $H_{01}$ และ $H_{03}$ สำหรับเกาะ Torgersen และ Biscoe ตามลำดับ สรุปได้ว่าความแปรปรวนของน้ำหนักตัว ($body\_mass\_g$) ระหว่างเพศผู้และเพศเมียในสองเกาะนี้**ไม่แตกต่างกัน**
+- **ไม่ปฏิเสธ** $H_{01}$ และ $H_{03}$ สำหรับเกาะ Torgersen และ Biscoe ตามลำดับ สรุปได้ว่าความแปรปรวนของน้ำหนักตัว ($body\_mass\_g$) ระหว่างเพศผู้และเพศเมียในสองเกาะนี้**ไม่แตกต่างกัน**
 
 - **ปฏิเสธ** $H_{02}$ สำหรับเกาะ Dream สรุปได้ว่าความแปรปรวนของน้ำหนักตัว ($body\_mass\_g$) ระหว่างเพศผู้และเพศเมียในเกาะ Dream **มีความแตกต่างกัน** อย่างมีนัยสำคัญทางสถิติ
 
@@ -210,7 +219,7 @@ select(-c(method, conf.low, conf.high, alternative)) %>%
 
 $$
 \begin{aligned}
-H_0 &:  \sigma^2_{\text{ตัวผู้, Torgersen}} = \sigma^2_{\text{ตัวผู้, Dream}} = \sigma^2_{\text{ตัวผู้, Bisoe}} \\
+H_0 &:  \sigma^2_{\text{ตัวผู้, Torgersen}} = \sigma^2_{\text{ตัวผู้, Dream}} = \sigma^2_{\text{ตัวผู้, Biscoe}} \\
 H_1 &: \text{มีอย่างน้อย 1 กลุ่มที่แตกต่างกัน}
 \end{aligned}
 $$
@@ -219,17 +228,15 @@ $$
 #| label: tbl-levene-male
 #| tbl-cap: "การทดสอบ levenve ตัวผู้เกาะแตกต่างกัน"
 
-adelie %>% 
-  filter(sex=="male") %$% 
-  leveneTest(body_mass_g ~ island)%>% 
-  tidy() %>% 
+adelie %>%
+  filter(sex == "male") %>%
+  {leveneTest(body_mass_g ~ island,data=.)}%>%
+  tidy() %>%
   gt()
-
-
 ```
 
 ::: {.callout-note appearance="minimal" icon="false"}
-**สรุปผล** จากการทดสอบ levene-test พบว่า p-value ได้เท่ากับ 0.8931 มากกว่า 0.05 ดังนั้นจึงตัดสินใจยอมรับสมติฐานหลัก ความแปรปรวน body_mass_g ของเพนกวินสายพันธ์ Adelie ในเพศผู้ในแต่ละเกาะมีความแปรปรวนเท่ากัน
+**สรุปผล** จากการทดสอบ levene-test พบว่า p-value ได้เท่ากับ 0.8931 มากกว่า 0.05 ดังนั้นจึงตัดสินใจไม่ปฏิเสธสมมติฐานหลัก ความแปรปรวน body_mass_g ของเพนกวินสายพันธุ์ Adelie ในเพศผู้ในแต่ละเกาะมีความแปรปรวนเท่ากัน
 :::
 
 <br>
@@ -240,7 +247,7 @@ adelie %>%
 
 $$
 \begin{aligned}
-H_0 &:  \sigma^2_{\text{ตัวเมีย, Torgersen}} = \sigma^2_{\text{ตัวเมีย, Dream}} = \sigma^2_{\text{ตัวเมีย, Bisoe}} \\
+H_0 &:  \sigma^2_{\text{ตัวเมีย, Torgersen}} = \sigma^2_{\text{ตัวเมีย, Dream}} = \sigma^2_{\text{ตัวเมีย, Biscoe}} \\
 H_1 &: \text{มีอย่างน้อย 1 กลุ่มที่แตกต่างกัน}
 \end{aligned}
 $$
@@ -249,101 +256,44 @@ $$
 #| label: tbl-levene-female
 #| tbl-cap: "การทดสอบ levenve ตัวเมียเกาะแตกต่างกัน"
 
-
-adelie %>% 
-  filter(sex=="female") %>% 
-  { leveneTest(body_mass_g ~ island, data = .) } %>% 
-  tidy() %>% 
+adelie %>%
+  filter(sex == "female") %>%
+  {
+    leveneTest(body_mass_g ~ island, data = .)
+  } %>%
+  tidy() %>%
   gt()
-
 ```
 
 ::: {.callout-note appearance="minimal" icon="false"}
-**สรุปผล** จากการทดสอบ levene-test พบว่า p-value ได้เท่ากับ 0.0121 น้อยกว่า 0.05 ดังนั้นจึงตัดสินใจปฏิเสธสมติฐานหลัก และยอมรับสมติฐานแย้ง ความแปรปรวน body_mass_g ของเพนกวินสายพันธ์ Adelie ในเพศเมียในแต่ละเกาะมีความแปรปรวนไม่เท่ากัน
-:::
-
-<br>
-
-หลังจากที่เรารู้แล้วว่ามีความแปรรวนอย่างน้อย 1 ตัวไม่เท่ากับความแปรปรวนของกลุ่มอื่นดังนั้นจะใช้การทดสอบความเท่ากันของความแปรปรวน F-test ในการตรวจว่าความแปรปรวนในกลุ่มไหนที่ไม่เหมือนกัน
-
-กำหนดค่าระดับนัยสำคัญ 0.05
-
-\begin{aligned}
-% คู่ที่ 1: Torgersen vs Dream
-H_{01} &: \sigma^2_{\text{เมีย, Torgersen}} = \sigma^2_{\text{เมีย, Dream}} \\
-H_{11} &: \sigma^2_{\text{เมีย, Torgersen}} \neq \sigma^2_{\text{เมีย, Dream}} \\[1ex]
-
-% คู่ที่ 2: Torgersen vs Biscoe
-H_{02} &: \sigma^2_{\text{เมีย, Torgersen}} = \sigma^2_{\text{เมีย, Biscoe}} \\
-H_{12} &: \sigma^2_{\text{เมีย, Torgersen}} \neq \sigma^2_{\text{เมีย, Biscoe}} \\[1ex]
-
-% คู่ที่ 3: Dream vs Biscoe
-H_{03} &: \sigma^2_{\text{เมีย, Dream}} = \sigma^2_{\text{เมีย, Biscoe}} \\
-H_{13} &: \sigma^2_{\text{เมีย, Dream}} \neq \sigma^2_{\text{เมีย, Biscoe}}
-\end{aligned}
-
-```{r, message=FALSE, warning=FALSE}
-#| label: tbl-ftest-pair-female
-#| tbl-cap: "การทดสอบ f-test สำหรับหาคู่ตัวเมียเกาะแตกต่างกัน ที่ความแปรปรวนไม่เท่ากัน"
-
-
-pair.ftest.adelie <- function(var1, var2) {
-  return(
-    adelie %>% 
-  filter(sex == "female", island %in% c(var1, var2)) %>% 
-  {var.test(body_mass_g ~ island,data=.)} %>% 
-  tidy()
-  )
-}
-
-map2_dfr(
-  .x = c("Torgersen", "Torgersen", "Dream"),
-  .y = c("Dream", "Biscoe", "Biscoe"),
-  .f = pair.ftest.adelie)  %>% 
-  mutate(group_compare = c("Torgersen vs Dream","Torgersen vs Biscoe", "Dream vs Biscoe" )) %>% 
-  select(group_compare, everything()) %>% 
-  select(-c(method, conf.low, conf.high)) %>% 
-  gt()
-
-```
-
-::: {.callout-note appearance="minimal" icon="false"}
-**สรุปผล** จากการทดสอบความแปรปรวนเท่ากันด้วย **F-test** ที่ระดับความสำคัญทางสถิติ $\alpha = 0.05$ พบว่า เกาะ Torgersen vs Dream และ Torgersen vs Biscoe มีค่า p-value มากกว่า $0.05$ ในขณะที่เกาะ Dream vs Biscoe มีค่า p-value น้อยกว่า $0.05$
-
-**จึงทำการตัดสินใจ:**
-
-- **ยอมรับ** $H_{01}$ และ $H_{02}$ สำหรับเกาะ Torgersen vs Dream และ Torgersen vs Biscoe ตามลำดับ สรุปได้ว่าความแปรปรวนของน้ำหนักตัว ($body\_mass\_g$) **ไม่แตกต่างกัน**
-
-- **ปฏิเสธ** $H_{03}$ สำหรับเกาะ Dream vs Biscoe สรุปได้ว่าความแปรปรวนของน้ำหนักตัว ($body\_mass\_g$) **มีความแตกต่างกัน** อย่างมีนัยสำคัญทางสถิติ
-
-**ข้อสรุปภาพรวม:** ความเท่ากันของความแปรปรวนน้ำหนักเพนกวินเพศเมีย มีเกาะที่แตกต่างกันคือเกาะ Dream และ Biscoe
+**สรุปผล** จากการทดสอบ levene-test พบว่า p-value ได้เท่ากับ 0.0121 น้อยกว่า 0.05 ดังนั้นจึงตัดสินใจปฏิเสธสมมติฐานหลัก ความแปรปรวน body_mass_g ของเพนกวินสายพันธุ์ Adelie ในเพศเมียในแต่ละเกาะมีความแปรปรวนไม่เท่ากัน
 :::
 
 <br>
 
 ### การทดสอบค่าเฉลี่ยของน้ำหนักตัว
 
-- ก่อนจะไปทำการทดสอบว่าค่าเฉลี่ยเพนกวินในแต่ละเกาะต่างกันไหม จะทำการตรวจสอบว่าค่าเฉลี่ยน้ำหนักของตัวผู้และตัวเมียแตกต่างกันหรือไม่ เพื่อตัดสินใจที่จะเปรียบเทียบรวมทั้งเพศเมียและเพศผู้ด้วยเลย เมื่อค่าเฉลี่ยของตัวผู้และตัวเมียในแต่ละเกาะไม่แตกต่างกัน แต่ถ้าค่าเฉลี่ยของตัวผู้และตัวเมียแตกต่างกัน จะทำการเปรียบเทียบแบบแต่ละเกาะแต่ แยกเพศ
+- ก่อนเปรียบเทียบค่าเฉลี่ยระหว่างเกาะ จะตรวจสอบก่อนว่าเพศผู้และเพศเมียมีค่าเฉลี่ยต่างกันหรือไม่ ถ้าไม่ต่างกัน จะรวมสองเพศเปรียบเทียบพร้อมกัน แต่ถ้าต่างกัน จะเปรียบเทียบระหว่างเกาะโดยแยกตามเพศ
 
 **จากการทดสอบการแจกแจงปกติและความเท่ากันของความแปรปรวนทำให้เรารู้ว่า**
 
-- การแจงแจงของทุกกลุ่มมีการแจกแจงปกติ (@tbl-shapiro)
+- การแจกแจงของทุกกลุ่มมีการแจกแจงปกติ (@tbl-shapiro)
 
-- ความแปรปรวนในเพศผู้แต่คนละเกาะเท่ากันในทั้ง 3 เกาะ (@tbl-levene-male) แต่สำหรับเพศเมียมี 2 คู่ที่ความแปรปรวนเท่ากันคือ เกาะ Torgersen Dream และ Torgersen Biscoe ส่วนคู่ที่ไม่เท่ากันคือ Dream biscoe (@tbl-ftest-pair-female)
+- ความแปรปรวนของ body_mass_g ในเพศผู้แต่คนละเกาะเท่ากันในทั้ง 3 เกาะ (@tbl-levene-male) แต่สำหรับความแปรปรวน body_mass_g เพศเมีย ในแต่ละเกาะมีอย่างน้อย 1 เกาะที่ความแปรปรวนไม่เท่ากัน (@tbl-levene-female)
 
 <br>
 
 ### การทดสอบความเท่ากันของค่าเฉลี่ยระหว่างเพนกวินเพศผู้และเพนกวินเพศเมียในเกาะเดียวกัน
 
-- การแจกแจงของทุกกลุ่มที่จะนำมาเปรียบเทียบเป็นการแจกแจงปกติ
+- การแจกแจงของทุกกลุ่มที่จะนำมาเปรียบเทียบเป็นการแจกแจงปกติ (@tbl-shapiro)
 
-- ความเท่ากันของความแปรปรวนระหว่างเพนกวินเพศผู้และเพศเมียในเกาะเดียวกันมีความแปรปรวนเท่ากันยกเว้นเกาะ Dream ที่มีความแปรปรวนไม่เท่ากันระหว่างเพนกวินเพศผู้และเพศเมีย (@tbl-ftest-pair-female)
+- ความเท่ากันของความแปรปรวนระหว่างเพนกวินเพศผู้และเพศเมียในเกาะเดียวกันมีความแปรปรวนเท่ากันยกเว้นเกาะ Dream ที่มีความแปรปรวนไม่เท่ากันระหว่างเพนกวินเพศผู้และเพศเมีย (@tbl-F-test-male-vs-female-same-island)
 
 **สำหรับวิธีการเปรียบเทียบค่าเฉลี่ย**
 
 - t-test ความแปรปรวนเท่ากันสำหรับเกาะ Torgersen และ Biscoe
 
-- t-test ความแปรวปรวนไม่เท่ากันสำหรับเกาะ Dream
+- t-test ความแปรปรวนไม่เท่ากันสำหรับเกาะ Dream
 
 <br>
 
@@ -364,76 +314,107 @@ H_{13} &: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}}
 $$
 
 ```{r}
-t.test.mf <- function(isl, var.e=F) {
-male.m <- adelie %>% 
-  filter(island == isl, sex=='male') %>% 
-  pull(body_mass_g)
+t.test.mf <- function(isl, var.e = F) {
+  male.m <- adelie %>%
+    filter(island == isl, sex == 'male') %>%
+    pull(body_mass_g)
 
-female.m <- adelie %>% 
-  filter(island == isl, sex=="female") %>% 
-  pull(body_mass_g)
+  female.m <- adelie %>%
+    filter(island == isl, sex == "female") %>%
+    pull(body_mass_g)
 
-result <- t.test(male.m, female.m, var.equal=var.e, alternative="two.sided") %>% 
-  tidy()
+  result <- t.test(
+    male.m,
+    female.m,
+    var.equal = var.e,
+    alternative = "two.sided"
+  ) %>%
+    tidy()
 
-return(result)
+  return(result)
 }
-
 
 
 map2_dfr(
   .x = c("Torgersen", "Biscoe", "Dream"),
   .y = c(T, T, F),
   .f = t.test.mf
-) %>% 
-  select(-c(estimate, estimate1, estimate2, conf.low, conf.high)) %>% 
+) %>%
+  select(-c(conf.low, conf.high)) %>%
   mutate(
     island = c("Torgersen", "Biscoe", "Dream"),
     p.value = pvalue(p.value)
-  ) %>% 
-  select(island, everything()) %>% 
+  ) %>%
+  select(island, everything()) %>%
   gt()
-
-
-
 ```
 
 ::: {.callout-note appearance="minimal" icon="false"}
-**สรุปผล** จากการทดสอบความเท่ากันของค่าเฉลี่ยด้วย **t-test** เมื่อความแปรปรวนทำเท่ากันและไม่เท่ากัน ที่ระดับนัยทางสถิติ $\alpha =0.05$ พบว่า p-value ของทุกเกาะน้อยกว่า $0.05$ จึงทำ **การปฏิเสธ** $H_{01}$ $H_{02}$ และ $H_{03}$
+**สรุปผล** จากการทดสอบความเท่ากันของค่าเฉลี่ยด้วย **t-test** เมื่อความแปรปรวนเท่ากันและไม่เท่ากัน ที่ระดับนัยทางสถิติ $\alpha =0.05$ พบว่า p-value ของทุกเกาะน้อยกว่า $0.05$ จึงทำ **การปฏิเสธ** $H_{01}$ $H_{02}$ และ $H_{03}$
 
 สรุปได้ว่าเพนกวินสายพันธุ์ adelie ตัวผู้และตัวเมีย มีค่าเฉลี่ยที่ไม่เท่ากันในทุกเกาะ
 :::
 
-## การทดสอบสมติฐานหลัก
+## การทดสอบสมมติฐานหลัก
 
-### การทดสอบความเท่ากันของค่าเฉลี่ยของ body_mass_g ของเพนกวินสายพันธ์ Adelie เพศผู้ของเกาะ Torgersen Dream และ Biscoe
-
-\begin{aligned}
-
-H_0 &: \mu_{ตัวผู้, Torgersen}=\mu_{ตัวผู้, Dream}=\mu_{ตัวผู้ , Beiscoe}\\
-H_1 &: \text{ มีอย่างน้อย 1 กลุ่มที่แตกต่างกัน}
-
-\end{aligned}
-
-```{r}
-
-adelie %>% 
-  filter(sex=="male") %$%
-  aov(body_mass_g ~ island)
-```
+### การทดสอบความเท่ากันของค่าเฉลี่ย body_mass_g ระหว่างเกาะ
 
 <br>
 
+สำหรับวิธีการทดสอบความเท่ากันของค่าเฉลี่ยน body_mass_g เพนกวินสายพันธุ์ Adelie จะใช้เป็น One-way ANOVA ความแปรปรวนเท่ากันสำหรับเพศผู้ และ Welch's ANOVA ความแปรปรวนไม่เท่ากันสำหรับเพศเมีย ทั้งคู่กำหนดระดับนัยสำคัญ 0.05 ทั้งคู่ \
+
+#### เพศผู้ (One-way ANOVA)
+
 \begin{aligned}
 
-H_0 &: \mu_{ตัวเมีย, Torgersen}=\mu_{ตัวเมีย, Dream}=\mu_{ตัวเมีย , Beiscoe}\\
+H_0 &: \mu_{ตัวผู้, Torgersen}=\mu_{ตัวผู้, Dream}=\mu_{ตัวผู้ , Biscoe}\\
 H_1 &: \text{ มีอย่างน้อย 1 กลุ่มที่แตกต่างกัน}
 
 \end{aligned}
 
 ```{r}
-adelie %>% 
-  filter(sex=="female") %$%
-  oneway.test(body_mass_g ~ island, var.equal = FALSE)
+
+adelie %>%
+  filter(sex == "male") %>% 
+  {aov(body_mass_g ~ island, data=.)} %>%
+  tidy() %>% 
+  gt()
 
 ```
+
+::: {.callout-note appearance="minimal" icon="false"}
+**สรุปผล** ผลจากการวิเคราะห์ One-way ANOVA พบว่า p-value เท่ากับ 0.989 ซึ่งมากกว่าระดับนัยสำคัญ 0.05 จึงตัดสินใจไม่ปฏิเสธ สมมติฐานว่าค่าเฉลี่ยของเพศผู้เกาะ Torgersen Dream และ Biscoe ไม่แตกต่างกัน
+:::
+
+<br>
+
+#### เพศเมีย (Welch’s ANOVA)
+
+\begin{aligned} 
+
+H_0 &: \mu_{ตัวเมีย, Torgersen}=\mu_{ตัวเมีย, Dream}=\mu_{ตัวเมีย , Biscoe}\\
+H_1 &: \text{ มีอย่างน้อย 1 กลุ่มที่แตกต่างกัน}
+
+\end{aligned}
+
+```{r}
+adelie %>%
+  filter(sex == "female") %>% 
+  { oneway.test(body_mass_g ~ island, data = ., var.equal = FALSE) } %>% 
+     tidy() %>% 
+     gt()
+
+```
+
+::: {.callout-note appearance="minimal" icon="false"}
+**สรุปผล** ผลจากการวิเคราะห์ Welch's ANOVA พบว่า p-value เท่ากับ 0.747 ซึ่งมากกว่าระดับนัยสำคัญ 0.05 จึงตัดสินใจไม่ปฏิเสธสมมติฐานว่าค่าเฉลี่ยของเพศเมียเกาะ Torgersen Dream และ Biscoe ไม่แตกต่างกัน
+:::
+
+## สรุปผลการวิจัย
+
+จากการวิเคราะห์น้ำหนักตัว (body_mass_g) ของเพนกวินสายพันธู์ Adelie บนเกาะ Torgersen, Dream และ Biscoe โดยเปรียบเทียบเฉพาะเพศเดียวกัน (เพราะพบว่าเพศผู้และเพศเมียมีค่าเฉลี่ยต่างกันในทุกเกาะ) พบว่า
+
+- **เพศผู้** One-way Anova ได้ p-value = 0.989 ซึ่งมากกว่า 0.05 จึงไม่ปฏิเสธ $H_0$ สรุปว่าค่าเฉลี่ยน้ำหนักระหว่างเกาะไม่แตกต่างกัน
+- **เพศเมีย:** Welch's ANOVA ได้ p-value = 0.747 ซึ่งมากกว่า 0.05 จึงไม่ปฏิเสธ $H_0$ สรุปว่าค่าเฉลี่ยน้ำหนักตัวระหว่างเกาะไม่แตกต่างกัน
+
+**ข้อสรุป:** ที่ระดับนัยสำคัญ 0.05 ไม่พบความแตกต่างของน้ำหนักตัวเพนกวินสายพันธุ์ Adelie ระหว่างเกาะ Torgersen, Dream และ Biscoe ทั้งในเพศผู้และเพศเมีย

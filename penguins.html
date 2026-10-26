@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>การทดสอบสมติฐาน น้ำหนักของ penguin สายพันธ์ adellie แตกต่างกันหรือไม่ในทั้ง 3 เกาะ</title>
+<title>การทดสอบสมมติฐาน น้ำหนักของ penguin สายพันธุ์ adellie แตกต่างกันหรือไม่ในทั้ง 3 เกาะ</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -128,14 +128,18 @@ window.Quarto = {
   </ul></li>
   <li><a href="#ขอมลสถตพรรณา" id="toc-ขอมลสถตพรรณา" class="nav-link" data-scroll-target="#ขอมลสถตพรรณา">ข้อมูลสถิติพรรณา</a></li>
   <li><a href="#การกระจายตวของขอมล" id="toc-การกระจายตวของขอมล" class="nav-link" data-scroll-target="#การกระจายตวของขอมล">การกระจายตัวของข้อมูล</a></li>
-  <li><a href="#การทดสอบสมตฐานเบองตน" id="toc-การทดสอบสมตฐานเบองตน" class="nav-link" data-scroll-target="#การทดสอบสมตฐานเบองตน">การทดสอบสมติฐานเบื้องต้น</a>
+  <li><a href="#การทดสอบสมมตฐานเบองตน" id="toc-การทดสอบสมมตฐานเบองตน" class="nav-link" data-scroll-target="#การทดสอบสมมตฐานเบองตน">การทดสอบสมมติฐานเบื้องต้น</a>
   <ul class="collapse">
   <li><a href="#การทดสอบการแจกแจงปกต" id="toc-การทดสอบการแจกแจงปกต" class="nav-link" data-scroll-target="#การทดสอบการแจกแจงปกต">การทดสอบการแจกแจงปกติ</a></li>
   <li><a href="#การทดสอบความเทากนของความแปรปรวน" id="toc-การทดสอบความเทากนของความแปรปรวน" class="nav-link" data-scroll-target="#การทดสอบความเทากนของความแปรปรวน">การทดสอบความเท่ากันของความแปรปรวน</a></li>
   <li><a href="#การทดสอบคาเฉลยของนำหนกตว" id="toc-การทดสอบคาเฉลยของนำหนกตว" class="nav-link" data-scroll-target="#การทดสอบคาเฉลยของนำหนกตว">การทดสอบค่าเฉลี่ยของน้ำหนักตัว</a></li>
   <li><a href="#การทดสอบความเทากนของคาเฉลยระหวางเพนกวนเพศผและเพนกวนเพศเมยในเกาะเดยวกน" id="toc-การทดสอบความเทากนของคาเฉลยระหวางเพนกวนเพศผและเพนกวนเพศเมยในเกาะเดยวกน" class="nav-link" data-scroll-target="#การทดสอบความเทากนของคาเฉลยระหวางเพนกวนเพศผและเพนกวนเพศเมยในเกาะเดยวกน">การทดสอบความเท่ากันของค่าเฉลี่ยระหว่างเพนกวินเพศผู้และเพนกวินเพศเมียในเกาะเดียวกัน</a></li>
   </ul></li>
-  <li><a href="#การทดสอบสมตฐานหลก" id="toc-การทดสอบสมตฐานหลก" class="nav-link" data-scroll-target="#การทดสอบสมตฐานหลก">การทดสอบสมติฐานหลัก</a></li>
+  <li><a href="#การทดสอบสมมตฐานหลก" id="toc-การทดสอบสมมตฐานหลก" class="nav-link" data-scroll-target="#การทดสอบสมมตฐานหลก">การทดสอบสมมติฐานหลัก</a>
+  <ul class="collapse">
+  <li><a href="#การทดสอบความเทากนของคาเฉลย-body_mass_g-ระหวางเกาะ" id="toc-การทดสอบความเทากนของคาเฉลย-body_mass_g-ระหวางเกาะ" class="nav-link" data-scroll-target="#การทดสอบความเทากนของคาเฉลย-body_mass_g-ระหวางเกาะ">การทดสอบความเท่ากันของค่าเฉลี่ย body_mass_g ระหว่างเกาะ</a></li>
+  </ul></li>
+  <li><a href="#สรปผลการวจย" id="toc-สรปผลการวจย" class="nav-link" data-scroll-target="#สรปผลการวจย">สรุปผลการวิจัย</a></li>
   </ul>
 </nav>
 </div>
@@ -143,7 +147,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">การทดสอบสมติฐาน น้ำหนักของ penguin สายพันธ์ adellie แตกต่างกันหรือไม่ในทั้ง 3 เกาะ</h1>
+<h1 class="title">การทดสอบสมมติฐาน น้ำหนักของ penguin สายพันธุ์ adellie แตกต่างกันหรือไม่ในทั้ง 3 เกาะ</h1>
 </div>
 
 
@@ -164,15 +168,14 @@ window.Quarto = {
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>สนใจศึกษาน้ำหนักของ penguins สายพันธ์ Adelie ในแต่ละเกาะแตกต่างกันหรือไม่ในทั้ง 3 เกาะ โดยจะทำการเปรียบเทียบแยกตามเกาะและจะนำเพนกวินเพศเดียวกันแต่เกาะต่างกันเท่านั้นมาเปรียบเทียบค่าเฉลี่่ย</p>
+<p>สนใจศึกษาน้ำหนักของ penguins สายพันธุ์ Adelie ในแต่ละเกาะแตกต่างกันหรือไม่ในทั้ง 3 เกาะ โดยจะทำการเปรียบเทียบแยกตามเกาะและจะนำเพนกวินเพศเดียวกันแต่เกาะต่างกันเท่านั้นมาเปรียบเทียบค่าเฉลี่่ย</p>
 <section id="ขอมลพนฐานของ-data-set" class="level2">
 <h2 class="anchored" data-anchor-id="ขอมลพนฐานของ-data-set">ข้อมูลพื้นฐานของ data set</h2>
 <section id="โครงสรางชดขอมล" class="level3">
@@ -180,12 +183,12 @@ window.Quarto = {
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>adelie.org <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species, island, body_mass_g, sex) <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>adelie.org <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(species, island, body_mass_g, sex) <span class="sc">%&gt;%</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>adelie.org <span class="sc">%&gt;%</span> </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a> <span class="fu">glimpse</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>adelie.org <span class="sc">%&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 152
@@ -211,7 +214,7 @@ $ sex         &lt;fct&gt; male, female, female, NA, female, male, female, male, 
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>adelie.org <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>adelie.org <span class="sc">%&gt;%</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
@@ -241,16 +244,16 @@ $ sex         &lt;fct&gt; male, female, female, NA, female, male, female, male, 
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="ot">&lt;-</span> adelie.org <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="ot">&lt;-</span> adelie.org <span class="sc">%&gt;%</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">100</span> <span class="sc">-</span> (<span class="fu">nrow</span>(adelie)<span class="sc">/</span><span class="fu">nrow</span>(adelie.org))<span class="sc">*</span><span class="dv">100</span>, <span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">100</span> <span class="sc">-</span> (<span class="fu">nrow</span>(adelie) <span class="sc">/</span> <span class="fu">nrow</span>(adelie.org)) <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.9474</code></pre>
+<pre><code>[1] 3.95</code></pre>
 </div>
 </div>
-<p>ข้อมูลมีทั้งหมด 152 แถวหลังจากทำการลบแถวที่มีค่า missing values ออกแล้วจะเหลือ 146 แถว ซึ่งคิดเป็น 3.9474 เปอเซ้นของข้อมูลที่เสียไป <strong>จึงตัดสินใจจัดการ missing values ด้วยการลบแถวออก</strong></p>
+<p>ข้อมูลมีทั้งหมด 152 แถว หลังจากทำการลบแถวที่มีค่า missing values ออกแล้วจะเหลือ 146 แถว ซึ่งคิดเป็น 3.95 เปอเซ็นของข้อมูลที่เสียไป <strong>จึงตัดสินใจจัดการ missing values ด้วยการลบแถวออก</strong></p>
 </section>
 </section>
 <section id="ขอมลสถตพรรณา" class="level2">
@@ -258,16 +261,18 @@ $ sex         &lt;fct&gt; male, female, female, NA, female, male, female, male, 
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>desc.by.sex.island <span class="ot">&lt;-</span> adelie <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(body_mass_g),</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">std =</span> <span class="fu">sd</span>(body_mass_g),</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">count =</span> <span class="fu">n</span>(),</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by =</span> <span class="fu">c</span>(island,sex)) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>desc.by.sex.island <span class="sc">%&gt;%</span> </span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>desc.by.sex.island <span class="ot">&lt;-</span> adelie <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(body_mass_g),</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">std =</span> <span class="fu">sd</span>(body_mass_g),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">count =</span> <span class="fu">n</span>(),</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> <span class="fu">c</span>(island, sex)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.data.frame</span>()</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>desc.by.sex.island <span class="sc">%&gt;%</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-descriptive" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -276,23 +281,23 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
 </figcaption>
 <div aria-describedby="tbl-descriptive-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="bfjzmqbabu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bfjzmqbabu table {
+<div id="kfdsabwqhb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kfdsabwqhb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bfjzmqbabu thead, #bfjzmqbabu tbody, #bfjzmqbabu tfoot, #bfjzmqbabu tr, #bfjzmqbabu td, #bfjzmqbabu th {
+#kfdsabwqhb thead, #kfdsabwqhb tbody, #kfdsabwqhb tfoot, #kfdsabwqhb tr, #kfdsabwqhb td, #kfdsabwqhb th {
   border-style: none;
 }
 
-#bfjzmqbabu p {
+#kfdsabwqhb p {
   margin: 0;
   padding: 0;
 }
 
-#bfjzmqbabu .gt_table {
+#kfdsabwqhb .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -318,12 +323,12 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   border-left-color: #D3D3D3;
 }
 
-#bfjzmqbabu .gt_caption {
+#kfdsabwqhb .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bfjzmqbabu .gt_title {
+#kfdsabwqhb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -335,7 +340,7 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   border-bottom-width: 0;
 }
 
-#bfjzmqbabu .gt_subtitle {
+#kfdsabwqhb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -347,7 +352,7 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   border-top-width: 0;
 }
 
-#bfjzmqbabu .gt_heading {
+#kfdsabwqhb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -359,13 +364,13 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   border-right-color: #D3D3D3;
 }
 
-#bfjzmqbabu .gt_bottom_border {
+#kfdsabwqhb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bfjzmqbabu .gt_col_headings {
+#kfdsabwqhb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -380,7 +385,7 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   border-right-color: #D3D3D3;
 }
 
-#bfjzmqbabu .gt_col_heading {
+#kfdsabwqhb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -400,7 +405,7 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   overflow-x: hidden;
 }
 
-#bfjzmqbabu .gt_column_spanner_outer {
+#kfdsabwqhb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -412,15 +417,15 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   padding-right: 4px;
 }
 
-#bfjzmqbabu .gt_column_spanner_outer:first-child {
+#kfdsabwqhb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bfjzmqbabu .gt_column_spanner_outer:last-child {
+#kfdsabwqhb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bfjzmqbabu .gt_column_spanner {
+#kfdsabwqhb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -432,11 +437,11 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   width: 100%;
 }
 
-#bfjzmqbabu .gt_spanner_row {
+#kfdsabwqhb .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bfjzmqbabu .gt_group_heading {
+#kfdsabwqhb .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -462,7 +467,7 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   text-align: left;
 }
 
-#bfjzmqbabu .gt_empty_group_heading {
+#kfdsabwqhb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -477,15 +482,15 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   vertical-align: middle;
 }
 
-#bfjzmqbabu .gt_from_md > :first-child {
+#kfdsabwqhb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bfjzmqbabu .gt_from_md > :last-child {
+#kfdsabwqhb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bfjzmqbabu .gt_row {
+#kfdsabwqhb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -504,7 +509,7 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   overflow-x: hidden;
 }
 
-#bfjzmqbabu .gt_stub {
+#kfdsabwqhb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -517,7 +522,7 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   padding-right: 5px;
 }
 
-#bfjzmqbabu .gt_stub_row_group {
+#kfdsabwqhb .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -531,15 +536,15 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   vertical-align: top;
 }
 
-#bfjzmqbabu .gt_row_group_first td {
+#kfdsabwqhb .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bfjzmqbabu .gt_row_group_first th {
+#kfdsabwqhb .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bfjzmqbabu .gt_summary_row {
+#kfdsabwqhb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -549,16 +554,16 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   padding-right: 5px;
 }
 
-#bfjzmqbabu .gt_first_summary_row {
+#kfdsabwqhb .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bfjzmqbabu .gt_first_summary_row.thick {
+#kfdsabwqhb .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bfjzmqbabu .gt_last_summary_row {
+#kfdsabwqhb .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -568,7 +573,7 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   border-bottom-color: #D3D3D3;
 }
 
-#bfjzmqbabu .gt_grand_summary_row {
+#kfdsabwqhb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -578,7 +583,7 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   padding-right: 5px;
 }
 
-#bfjzmqbabu .gt_first_grand_summary_row {
+#kfdsabwqhb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -588,7 +593,7 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   border-top-color: #D3D3D3;
 }
 
-#bfjzmqbabu .gt_last_grand_summary_row_top {
+#kfdsabwqhb .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -598,11 +603,11 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   border-bottom-color: #D3D3D3;
 }
 
-#bfjzmqbabu .gt_striped {
+#kfdsabwqhb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bfjzmqbabu .gt_table_body {
+#kfdsabwqhb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -611,7 +616,7 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   border-bottom-color: #D3D3D3;
 }
 
-#bfjzmqbabu .gt_footnotes {
+#kfdsabwqhb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -625,7 +630,7 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   border-right-color: #D3D3D3;
 }
 
-#bfjzmqbabu .gt_footnote {
+#kfdsabwqhb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -634,7 +639,7 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   padding-right: 5px;
 }
 
-#bfjzmqbabu .gt_sourcenotes {
+#kfdsabwqhb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -648,7 +653,7 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   border-right-color: #D3D3D3;
 }
 
-#bfjzmqbabu .gt_sourcenote {
+#kfdsabwqhb .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -656,72 +661,72 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
   padding-right: 5px;
 }
 
-#bfjzmqbabu .gt_left {
+#kfdsabwqhb .gt_left {
   text-align: left;
 }
 
-#bfjzmqbabu .gt_center {
+#kfdsabwqhb .gt_center {
   text-align: center;
 }
 
-#bfjzmqbabu .gt_right {
+#kfdsabwqhb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bfjzmqbabu .gt_font_normal {
+#kfdsabwqhb .gt_font_normal {
   font-weight: normal;
 }
 
-#bfjzmqbabu .gt_font_bold {
+#kfdsabwqhb .gt_font_bold {
   font-weight: bold;
 }
 
-#bfjzmqbabu .gt_font_italic {
+#kfdsabwqhb .gt_font_italic {
   font-style: italic;
 }
 
-#bfjzmqbabu .gt_super {
+#kfdsabwqhb .gt_super {
   font-size: 65%;
 }
 
-#bfjzmqbabu .gt_footnote_marks {
+#kfdsabwqhb .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bfjzmqbabu .gt_asterisk {
+#kfdsabwqhb .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bfjzmqbabu .gt_indent_1 {
+#kfdsabwqhb .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bfjzmqbabu .gt_indent_2 {
+#kfdsabwqhb .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bfjzmqbabu .gt_indent_3 {
+#kfdsabwqhb .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bfjzmqbabu .gt_indent_4 {
+#kfdsabwqhb .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bfjzmqbabu .gt_indent_5 {
+#kfdsabwqhb .gt_indent_5 {
   text-indent: 25px;
 }
 
-#bfjzmqbabu .katex-display {
+#kfdsabwqhb .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#bfjzmqbabu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#kfdsabwqhb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -791,14 +796,14 @@ Table&nbsp;1: ข้อมูลสถิติพรรณาที่แยก
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>desc.by.sex.island <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>island, <span class="at">y=</span>count, <span class="at">fill=</span>sex))<span class="sc">+</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)<span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>desc.by.sex.island <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> island, <span class="at">y =</span> count, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">label =</span> count),</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">position=</span><span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.9</span>),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.9</span>),</span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
@@ -820,11 +825,11 @@ Figure&nbsp;1: จำนวนเพนกวินแยกตามเพศ
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="sc">%&gt;%</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample=</span>body_mass_g, <span class="at">colour =</span> island))<span class="sc">+</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>()<span class="sc">+</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>(<span class="at">colour =</span><span class="st">'black'</span>)<span class="sc">+</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> island <span class="sc">+</span> sex, <span class="at">scales=</span><span class="st">"free_y"</span>)<span class="sc">+</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">sample =</span> body_mass_g, <span class="at">colour=</span>island)) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>() <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq_line</span>(<span class="at">colour =</span> <span class="st">'black'</span>) <span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> island <span class="sc">+</span> sex, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
@@ -840,9 +845,31 @@ Figure&nbsp;2: QQ-Plot แสดงการแจกแจงของข้อ
 </div>
 </div>
 </div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span> island, <span class="at">y=</span> body_mass_g, <span class="at">fill=</span>island)) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sex, <span class="at">scales=</span><span class="st">"free_y"</span>)<span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div id="fig-box-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-box-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="penguins_files/figure-html/fig-box-plot-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-box-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Box-Plot เปรียบระหว่างเกาะในแต่ละเพศ
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="การทดสอบสมตฐานเบองตน" class="level2">
-<h2 class="anchored" data-anchor-id="การทดสอบสมตฐานเบองตน">การทดสอบสมติฐานเบื้องต้น</h2>
+<section id="การทดสอบสมมตฐานเบองตน" class="level2">
+<h2 class="anchored" data-anchor-id="การทดสอบสมมตฐานเบองตน">การทดสอบสมมติฐานเบื้องต้น</h2>
 <section id="การทดสอบการแจกแจงปกต" class="level3">
 <h3 class="anchored" data-anchor-id="การทดสอบการแจกแจงปกต">การทดสอบการแจกแจงปกติ</h3>
 <p>ใช้การทดสอบของ Shapiro-Wilk กำหนดระดับนัยสำคัญ 0.05</p>
@@ -855,12 +882,13 @@ H_1 &amp;: \text{น้ำหนักตัวของเพนกวิน Ad
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">W =</span> <span class="fu">shapiro.test</span>(body_mass_g)<span class="sc">$</span>statistic,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_value =</span> <span class="fu">shapiro.test</span>(body_mass_g)<span class="sc">$</span>p.value,</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by=</span> <span class="fu">c</span>(island, sex)) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">W =</span> <span class="fu">shapiro.test</span>(body_mass_g)<span class="sc">$</span>statistic,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">p_value =</span> <span class="fu">shapiro.test</span>(body_mass_g)<span class="sc">$</span>p.value,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> <span class="fu">c</span>(island, sex)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-shapiro" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -869,23 +897,23 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
 </figcaption>
 <div aria-describedby="tbl-shapiro-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="icdrhldysk" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#icdrhldysk table {
+<div id="vheplkiycb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#vheplkiycb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#icdrhldysk thead, #icdrhldysk tbody, #icdrhldysk tfoot, #icdrhldysk tr, #icdrhldysk td, #icdrhldysk th {
+#vheplkiycb thead, #vheplkiycb tbody, #vheplkiycb tfoot, #vheplkiycb tr, #vheplkiycb td, #vheplkiycb th {
   border-style: none;
 }
 
-#icdrhldysk p {
+#vheplkiycb p {
   margin: 0;
   padding: 0;
 }
 
-#icdrhldysk .gt_table {
+#vheplkiycb .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -911,12 +939,12 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   border-left-color: #D3D3D3;
 }
 
-#icdrhldysk .gt_caption {
+#vheplkiycb .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#icdrhldysk .gt_title {
+#vheplkiycb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -928,7 +956,7 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   border-bottom-width: 0;
 }
 
-#icdrhldysk .gt_subtitle {
+#vheplkiycb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -940,7 +968,7 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   border-top-width: 0;
 }
 
-#icdrhldysk .gt_heading {
+#vheplkiycb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -952,13 +980,13 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   border-right-color: #D3D3D3;
 }
 
-#icdrhldysk .gt_bottom_border {
+#vheplkiycb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#icdrhldysk .gt_col_headings {
+#vheplkiycb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -973,7 +1001,7 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   border-right-color: #D3D3D3;
 }
 
-#icdrhldysk .gt_col_heading {
+#vheplkiycb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -993,7 +1021,7 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   overflow-x: hidden;
 }
 
-#icdrhldysk .gt_column_spanner_outer {
+#vheplkiycb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1005,15 +1033,15 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   padding-right: 4px;
 }
 
-#icdrhldysk .gt_column_spanner_outer:first-child {
+#vheplkiycb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#icdrhldysk .gt_column_spanner_outer:last-child {
+#vheplkiycb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#icdrhldysk .gt_column_spanner {
+#vheplkiycb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1025,11 +1053,11 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   width: 100%;
 }
 
-#icdrhldysk .gt_spanner_row {
+#vheplkiycb .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#icdrhldysk .gt_group_heading {
+#vheplkiycb .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1055,7 +1083,7 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   text-align: left;
 }
 
-#icdrhldysk .gt_empty_group_heading {
+#vheplkiycb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1070,15 +1098,15 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   vertical-align: middle;
 }
 
-#icdrhldysk .gt_from_md > :first-child {
+#vheplkiycb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#icdrhldysk .gt_from_md > :last-child {
+#vheplkiycb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#icdrhldysk .gt_row {
+#vheplkiycb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1097,7 +1125,7 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   overflow-x: hidden;
 }
 
-#icdrhldysk .gt_stub {
+#vheplkiycb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1110,7 +1138,7 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   padding-right: 5px;
 }
 
-#icdrhldysk .gt_stub_row_group {
+#vheplkiycb .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1124,15 +1152,15 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   vertical-align: top;
 }
 
-#icdrhldysk .gt_row_group_first td {
+#vheplkiycb .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#icdrhldysk .gt_row_group_first th {
+#vheplkiycb .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#icdrhldysk .gt_summary_row {
+#vheplkiycb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1142,16 +1170,16 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   padding-right: 5px;
 }
 
-#icdrhldysk .gt_first_summary_row {
+#vheplkiycb .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#icdrhldysk .gt_first_summary_row.thick {
+#vheplkiycb .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#icdrhldysk .gt_last_summary_row {
+#vheplkiycb .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1161,7 +1189,7 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   border-bottom-color: #D3D3D3;
 }
 
-#icdrhldysk .gt_grand_summary_row {
+#vheplkiycb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1171,7 +1199,7 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   padding-right: 5px;
 }
 
-#icdrhldysk .gt_first_grand_summary_row {
+#vheplkiycb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1181,7 +1209,7 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   border-top-color: #D3D3D3;
 }
 
-#icdrhldysk .gt_last_grand_summary_row_top {
+#vheplkiycb .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1191,11 +1219,11 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   border-bottom-color: #D3D3D3;
 }
 
-#icdrhldysk .gt_striped {
+#vheplkiycb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#icdrhldysk .gt_table_body {
+#vheplkiycb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1204,7 +1232,7 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   border-bottom-color: #D3D3D3;
 }
 
-#icdrhldysk .gt_footnotes {
+#vheplkiycb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1218,7 +1246,7 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   border-right-color: #D3D3D3;
 }
 
-#icdrhldysk .gt_footnote {
+#vheplkiycb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1227,7 +1255,7 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   padding-right: 5px;
 }
 
-#icdrhldysk .gt_sourcenotes {
+#vheplkiycb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1241,7 +1269,7 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   border-right-color: #D3D3D3;
 }
 
-#icdrhldysk .gt_sourcenote {
+#vheplkiycb .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1249,72 +1277,72 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
   padding-right: 5px;
 }
 
-#icdrhldysk .gt_left {
+#vheplkiycb .gt_left {
   text-align: left;
 }
 
-#icdrhldysk .gt_center {
+#vheplkiycb .gt_center {
   text-align: center;
 }
 
-#icdrhldysk .gt_right {
+#vheplkiycb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#icdrhldysk .gt_font_normal {
+#vheplkiycb .gt_font_normal {
   font-weight: normal;
 }
 
-#icdrhldysk .gt_font_bold {
+#vheplkiycb .gt_font_bold {
   font-weight: bold;
 }
 
-#icdrhldysk .gt_font_italic {
+#vheplkiycb .gt_font_italic {
   font-style: italic;
 }
 
-#icdrhldysk .gt_super {
+#vheplkiycb .gt_super {
   font-size: 65%;
 }
 
-#icdrhldysk .gt_footnote_marks {
+#vheplkiycb .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#icdrhldysk .gt_asterisk {
+#vheplkiycb .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#icdrhldysk .gt_indent_1 {
+#vheplkiycb .gt_indent_1 {
   text-indent: 5px;
 }
 
-#icdrhldysk .gt_indent_2 {
+#vheplkiycb .gt_indent_2 {
   text-indent: 10px;
 }
 
-#icdrhldysk .gt_indent_3 {
+#vheplkiycb .gt_indent_3 {
   text-indent: 15px;
 }
 
-#icdrhldysk .gt_indent_4 {
+#vheplkiycb .gt_indent_4 {
   text-indent: 20px;
 }
 
-#icdrhldysk .gt_indent_5 {
+#vheplkiycb .gt_indent_5 {
   text-indent: 25px;
 }
 
-#icdrhldysk .katex-display {
+#vheplkiycb .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#icdrhldysk div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#vheplkiycb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1380,7 +1408,7 @@ Table&nbsp;2: ผลการทดสอบ Shapiro-Wilk จำแนกตา�
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>สรุปผล</strong> พบว่าทุกกลุ่มมีค่า p-value มากกว่า 0.05 จึงไม่ปฏิเสธ <span class="math inline">\(H_0\)</span> สรุปได้ว่าน้ำหนักตัวของเพนกวิน Adelie ในทุกกลุ่มย่อยมีการแจกแจงปกติ</p>
+<p><strong>สรุปผล</strong> พบว่าทุกกลุ่มมีค่า p-value มากกว่า 0.05 จึงไม่ปฏิเสธสมมติฐาน สรุปได้ว่าน้ำหนักตัวของเพนกวิน Adelie ในทุกกลุ่มย่อยมีการแจกแจงปกติ</p>
 </div>
 </div>
 </div>
@@ -1407,46 +1435,47 @@ H_{13} &amp;: \sigma^2_{\text{ผู้, Biscoe}} \neq \sigma^2_{\text{เมี
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>ftest.mf <span class="ot">&lt;-</span> <span class="cf">function</span>(isl) {</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  adelie <span class="sc">%&gt;%</span> </span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(island <span class="sc">==</span> isl) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  { <span class="fu">var.test</span>(body_mass_g <span class="sc">~</span> sex,<span class="at">data=</span>.)} <span class="sc">%&gt;%</span> </span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">Torgersen =</span> <span class="st">"Torgersen"</span>, <span class="at">Dream =</span> <span class="st">"Dream"</span>, <span class="at">Biscoe =</span> <span class="st">"Biscoe"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_dfr</span>(ftest.mf, <span class="at">.id =</span> <span class="st">"island"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(method, conf.low, conf.high, alternative)) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(island, <span class="fu">everything</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ftest.mf <span class="ot">&lt;-</span> <span class="cf">function</span>(isl) {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    adelie <span class="sc">%&gt;%</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(island <span class="sc">==</span> isl) <span class="sc">%&gt;%</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>      {</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">var.test</span>(body_mass_g <span class="sc">~</span> sex, <span class="at">data =</span> .)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>      } <span class="sc">%&gt;%</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tidy</span>()</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="at">Torgersen =</span> <span class="st">"Torgersen"</span>, <span class="at">Dream =</span> <span class="st">"Dream"</span>, <span class="at">Biscoe =</span> <span class="st">"Biscoe"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_dfr</span>(ftest.mf, <span class="at">.id =</span> <span class="st">"island"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(method, conf.low, conf.high, alternative)) <span class="sc">%&gt;%</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(island, <span class="fu">everything</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div id="tbl-F-test" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<div id="tbl-F-test-male-vs-female-same-island" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-F-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพนกวินสายพันธ์ Adelie ตัวผู้และตัวเมีย ในเกาะเดียวกันทุกเกาะ
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-F-test-male-vs-female-same-island-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพนกวินสายพันธุ์ Adelie ตัวผู้และตัวเมีย ในเกาะเดียวกันทุกเกาะ
 </figcaption>
-<div aria-describedby="tbl-F-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="tbl-F-test-male-vs-female-same-island-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="nyqwsdjjln" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#nyqwsdjjln table {
+<div id="xobcefultj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xobcefultj table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#nyqwsdjjln thead, #nyqwsdjjln tbody, #nyqwsdjjln tfoot, #nyqwsdjjln tr, #nyqwsdjjln td, #nyqwsdjjln th {
+#xobcefultj thead, #xobcefultj tbody, #xobcefultj tfoot, #xobcefultj tr, #xobcefultj td, #xobcefultj th {
   border-style: none;
 }
 
-#nyqwsdjjln p {
+#xobcefultj p {
   margin: 0;
   padding: 0;
 }
 
-#nyqwsdjjln .gt_table {
+#xobcefultj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1472,12 +1501,12 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   border-left-color: #D3D3D3;
 }
 
-#nyqwsdjjln .gt_caption {
+#xobcefultj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#nyqwsdjjln .gt_title {
+#xobcefultj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1489,7 +1518,7 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   border-bottom-width: 0;
 }
 
-#nyqwsdjjln .gt_subtitle {
+#xobcefultj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1501,7 +1530,7 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   border-top-width: 0;
 }
 
-#nyqwsdjjln .gt_heading {
+#xobcefultj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1513,13 +1542,13 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   border-right-color: #D3D3D3;
 }
 
-#nyqwsdjjln .gt_bottom_border {
+#xobcefultj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nyqwsdjjln .gt_col_headings {
+#xobcefultj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1534,7 +1563,7 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   border-right-color: #D3D3D3;
 }
 
-#nyqwsdjjln .gt_col_heading {
+#xobcefultj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1554,7 +1583,7 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   overflow-x: hidden;
 }
 
-#nyqwsdjjln .gt_column_spanner_outer {
+#xobcefultj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1566,15 +1595,15 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   padding-right: 4px;
 }
 
-#nyqwsdjjln .gt_column_spanner_outer:first-child {
+#xobcefultj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nyqwsdjjln .gt_column_spanner_outer:last-child {
+#xobcefultj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nyqwsdjjln .gt_column_spanner {
+#xobcefultj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1586,11 +1615,11 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   width: 100%;
 }
 
-#nyqwsdjjln .gt_spanner_row {
+#xobcefultj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#nyqwsdjjln .gt_group_heading {
+#xobcefultj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1616,7 +1645,7 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   text-align: left;
 }
 
-#nyqwsdjjln .gt_empty_group_heading {
+#xobcefultj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1631,15 +1660,15 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   vertical-align: middle;
 }
 
-#nyqwsdjjln .gt_from_md > :first-child {
+#xobcefultj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nyqwsdjjln .gt_from_md > :last-child {
+#xobcefultj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nyqwsdjjln .gt_row {
+#xobcefultj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1658,7 +1687,7 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   overflow-x: hidden;
 }
 
-#nyqwsdjjln .gt_stub {
+#xobcefultj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1671,7 +1700,7 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   padding-right: 5px;
 }
 
-#nyqwsdjjln .gt_stub_row_group {
+#xobcefultj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1685,15 +1714,15 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   vertical-align: top;
 }
 
-#nyqwsdjjln .gt_row_group_first td {
+#xobcefultj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#nyqwsdjjln .gt_row_group_first th {
+#xobcefultj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#nyqwsdjjln .gt_summary_row {
+#xobcefultj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1703,16 +1732,16 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   padding-right: 5px;
 }
 
-#nyqwsdjjln .gt_first_summary_row {
+#xobcefultj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#nyqwsdjjln .gt_first_summary_row.thick {
+#xobcefultj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#nyqwsdjjln .gt_last_summary_row {
+#xobcefultj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1722,7 +1751,7 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   border-bottom-color: #D3D3D3;
 }
 
-#nyqwsdjjln .gt_grand_summary_row {
+#xobcefultj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1732,7 +1761,7 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   padding-right: 5px;
 }
 
-#nyqwsdjjln .gt_first_grand_summary_row {
+#xobcefultj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1742,7 +1771,7 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   border-top-color: #D3D3D3;
 }
 
-#nyqwsdjjln .gt_last_grand_summary_row_top {
+#xobcefultj .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1752,11 +1781,11 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   border-bottom-color: #D3D3D3;
 }
 
-#nyqwsdjjln .gt_striped {
+#xobcefultj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nyqwsdjjln .gt_table_body {
+#xobcefultj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1765,7 +1794,7 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   border-bottom-color: #D3D3D3;
 }
 
-#nyqwsdjjln .gt_footnotes {
+#xobcefultj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1779,7 +1808,7 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   border-right-color: #D3D3D3;
 }
 
-#nyqwsdjjln .gt_footnote {
+#xobcefultj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1788,7 +1817,7 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   padding-right: 5px;
 }
 
-#nyqwsdjjln .gt_sourcenotes {
+#xobcefultj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1802,7 +1831,7 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   border-right-color: #D3D3D3;
 }
 
-#nyqwsdjjln .gt_sourcenote {
+#xobcefultj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1810,72 +1839,72 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
   padding-right: 5px;
 }
 
-#nyqwsdjjln .gt_left {
+#xobcefultj .gt_left {
   text-align: left;
 }
 
-#nyqwsdjjln .gt_center {
+#xobcefultj .gt_center {
   text-align: center;
 }
 
-#nyqwsdjjln .gt_right {
+#xobcefultj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nyqwsdjjln .gt_font_normal {
+#xobcefultj .gt_font_normal {
   font-weight: normal;
 }
 
-#nyqwsdjjln .gt_font_bold {
+#xobcefultj .gt_font_bold {
   font-weight: bold;
 }
 
-#nyqwsdjjln .gt_font_italic {
+#xobcefultj .gt_font_italic {
   font-style: italic;
 }
 
-#nyqwsdjjln .gt_super {
+#xobcefultj .gt_super {
   font-size: 65%;
 }
 
-#nyqwsdjjln .gt_footnote_marks {
+#xobcefultj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#nyqwsdjjln .gt_asterisk {
+#xobcefultj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#nyqwsdjjln .gt_indent_1 {
+#xobcefultj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#nyqwsdjjln .gt_indent_2 {
+#xobcefultj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#nyqwsdjjln .gt_indent_3 {
+#xobcefultj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#nyqwsdjjln .gt_indent_4 {
+#xobcefultj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#nyqwsdjjln .gt_indent_5 {
+#xobcefultj .gt_indent_5 {
   text-indent: 25px;
 }
 
-#nyqwsdjjln .katex-display {
+#xobcefultj .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#nyqwsdjjln div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#xobcefultj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1934,7 +1963,7 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
 <p>จากการทดสอบความแปรปรวนเท่ากันด้วย <strong>F-test</strong> ที่ระดับความสำคัญทางสถิติ <span class="math inline">\(\alpha = 0.05\)</span> พบว่า เกาะ Torgersen และเกาะ Biscoe มี <span class="math inline">\(p\)</span>-value มากกว่า <span class="math inline">\(0.05\)</span> ในขณะที่เกาะ Dream มี <span class="math inline">\(p\)</span>-value น้อยกว่า <span class="math inline">\(0.05\)</span></p>
 <p><strong>จึงทำการตัดสินใจ:</strong></p>
 <ul>
-<li><p><strong>ยอมรับ</strong> <span class="math inline">\(H_{01}\)</span> และ <span class="math inline">\(H_{03}\)</span> สำหรับเกาะ Torgersen และ Biscoe ตามลำดับ สรุปได้ว่าความแปรปรวนของน้ำหนักตัว (<span class="math inline">\(body\_mass\_g\)</span>) ระหว่างเพศผู้และเพศเมียในสองเกาะนี้<strong>ไม่แตกต่างกัน</strong></p></li>
+<li><p><strong>ไม่ปฏิเสธ</strong> <span class="math inline">\(H_{01}\)</span> และ <span class="math inline">\(H_{03}\)</span> สำหรับเกาะ Torgersen และ Biscoe ตามลำดับ สรุปได้ว่าความแปรปรวนของน้ำหนักตัว (<span class="math inline">\(body\_mass\_g\)</span>) ระหว่างเพศผู้และเพศเมียในสองเกาะนี้<strong>ไม่แตกต่างกัน</strong></p></li>
 <li><p><strong>ปฏิเสธ</strong> <span class="math inline">\(H_{02}\)</span> สำหรับเกาะ Dream สรุปได้ว่าความแปรปรวนของน้ำหนักตัว (<span class="math inline">\(body\_mass\_g\)</span>) ระหว่างเพศผู้และเพศเมียในเกาะ Dream <strong>มีความแตกต่างกัน</strong> อย่างมีนัยสำคัญทางสถิติ</p></li>
 </ul>
 <p><strong>ข้อสรุปภาพรวม:</strong> ความแปรปรวนของน้ำหนักตัวเพนกวินสายพันธุ์ Adelie ระหว่างเพศผู้และเพศเมียมีความแตกต่างกันอย่างน้อย 1 เกาะ ซึ่งก็คือ <strong>เกาะ Dream</strong></p>
@@ -1948,18 +1977,18 @@ Table&nbsp;3: ผลการทดสอบ F-test ของ body_mass_g เพ
 <p>กำหนดระดับนัยสำคัญ 0.05</p>
 <p><span class="math display">\[
 \begin{aligned}
-H_0 &amp;:  \sigma^2_{\text{ตัวผู้, Torgersen}} = \sigma^2_{\text{ตัวผู้, Dream}} = \sigma^2_{\text{ตัวผู้, Bisoe}} \\
+H_0 &amp;:  \sigma^2_{\text{ตัวผู้, Torgersen}} = \sigma^2_{\text{ตัวผู้, Dream}} = \sigma^2_{\text{ตัวผู้, Biscoe}} \\
 H_1 &amp;: \text{มีอย่างน้อย 1 กลุ่มที่แตกต่างกัน}
 \end{aligned}
 \]</span></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="sc">%&gt;%</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex<span class="sc">==</span><span class="st">"male"</span>) <span class="sc">%$%</span> </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">leveneTest</span>(body_mass_g <span class="sc">~</span> island)<span class="sc">%&gt;%</span> </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  {<span class="fu">leveneTest</span>(body_mass_g <span class="sc">~</span> island,<span class="at">data=</span>.)}<span class="sc">%&gt;%</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-levene-male" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -1968,23 +1997,23 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
 </figcaption>
 <div aria-describedby="tbl-levene-male-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="ybaruxsira" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ybaruxsira table {
+<div id="ocrngkiefj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ocrngkiefj table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ybaruxsira thead, #ybaruxsira tbody, #ybaruxsira tfoot, #ybaruxsira tr, #ybaruxsira td, #ybaruxsira th {
+#ocrngkiefj thead, #ocrngkiefj tbody, #ocrngkiefj tfoot, #ocrngkiefj tr, #ocrngkiefj td, #ocrngkiefj th {
   border-style: none;
 }
 
-#ybaruxsira p {
+#ocrngkiefj p {
   margin: 0;
   padding: 0;
 }
 
-#ybaruxsira .gt_table {
+#ocrngkiefj .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2010,12 +2039,12 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   border-left-color: #D3D3D3;
 }
 
-#ybaruxsira .gt_caption {
+#ocrngkiefj .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ybaruxsira .gt_title {
+#ocrngkiefj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2027,7 +2056,7 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   border-bottom-width: 0;
 }
 
-#ybaruxsira .gt_subtitle {
+#ocrngkiefj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2039,7 +2068,7 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   border-top-width: 0;
 }
 
-#ybaruxsira .gt_heading {
+#ocrngkiefj .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2051,13 +2080,13 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   border-right-color: #D3D3D3;
 }
 
-#ybaruxsira .gt_bottom_border {
+#ocrngkiefj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ybaruxsira .gt_col_headings {
+#ocrngkiefj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2072,7 +2101,7 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   border-right-color: #D3D3D3;
 }
 
-#ybaruxsira .gt_col_heading {
+#ocrngkiefj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2092,7 +2121,7 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   overflow-x: hidden;
 }
 
-#ybaruxsira .gt_column_spanner_outer {
+#ocrngkiefj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2104,15 +2133,15 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   padding-right: 4px;
 }
 
-#ybaruxsira .gt_column_spanner_outer:first-child {
+#ocrngkiefj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ybaruxsira .gt_column_spanner_outer:last-child {
+#ocrngkiefj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ybaruxsira .gt_column_spanner {
+#ocrngkiefj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2124,11 +2153,11 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   width: 100%;
 }
 
-#ybaruxsira .gt_spanner_row {
+#ocrngkiefj .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ybaruxsira .gt_group_heading {
+#ocrngkiefj .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2154,7 +2183,7 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   text-align: left;
 }
 
-#ybaruxsira .gt_empty_group_heading {
+#ocrngkiefj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2169,15 +2198,15 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   vertical-align: middle;
 }
 
-#ybaruxsira .gt_from_md > :first-child {
+#ocrngkiefj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ybaruxsira .gt_from_md > :last-child {
+#ocrngkiefj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ybaruxsira .gt_row {
+#ocrngkiefj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2196,7 +2225,7 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   overflow-x: hidden;
 }
 
-#ybaruxsira .gt_stub {
+#ocrngkiefj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2209,7 +2238,7 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   padding-right: 5px;
 }
 
-#ybaruxsira .gt_stub_row_group {
+#ocrngkiefj .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2223,15 +2252,15 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   vertical-align: top;
 }
 
-#ybaruxsira .gt_row_group_first td {
+#ocrngkiefj .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ybaruxsira .gt_row_group_first th {
+#ocrngkiefj .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ybaruxsira .gt_summary_row {
+#ocrngkiefj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2241,16 +2270,16 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   padding-right: 5px;
 }
 
-#ybaruxsira .gt_first_summary_row {
+#ocrngkiefj .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ybaruxsira .gt_first_summary_row.thick {
+#ocrngkiefj .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ybaruxsira .gt_last_summary_row {
+#ocrngkiefj .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2260,7 +2289,7 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   border-bottom-color: #D3D3D3;
 }
 
-#ybaruxsira .gt_grand_summary_row {
+#ocrngkiefj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2270,7 +2299,7 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   padding-right: 5px;
 }
 
-#ybaruxsira .gt_first_grand_summary_row {
+#ocrngkiefj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2280,7 +2309,7 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   border-top-color: #D3D3D3;
 }
 
-#ybaruxsira .gt_last_grand_summary_row_top {
+#ocrngkiefj .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2290,11 +2319,11 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   border-bottom-color: #D3D3D3;
 }
 
-#ybaruxsira .gt_striped {
+#ocrngkiefj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ybaruxsira .gt_table_body {
+#ocrngkiefj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2303,7 +2332,7 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   border-bottom-color: #D3D3D3;
 }
 
-#ybaruxsira .gt_footnotes {
+#ocrngkiefj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2317,7 +2346,7 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   border-right-color: #D3D3D3;
 }
 
-#ybaruxsira .gt_footnote {
+#ocrngkiefj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2326,7 +2355,7 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   padding-right: 5px;
 }
 
-#ybaruxsira .gt_sourcenotes {
+#ocrngkiefj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2340,7 +2369,7 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   border-right-color: #D3D3D3;
 }
 
-#ybaruxsira .gt_sourcenote {
+#ocrngkiefj .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2348,72 +2377,72 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
   padding-right: 5px;
 }
 
-#ybaruxsira .gt_left {
+#ocrngkiefj .gt_left {
   text-align: left;
 }
 
-#ybaruxsira .gt_center {
+#ocrngkiefj .gt_center {
   text-align: center;
 }
 
-#ybaruxsira .gt_right {
+#ocrngkiefj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ybaruxsira .gt_font_normal {
+#ocrngkiefj .gt_font_normal {
   font-weight: normal;
 }
 
-#ybaruxsira .gt_font_bold {
+#ocrngkiefj .gt_font_bold {
   font-weight: bold;
 }
 
-#ybaruxsira .gt_font_italic {
+#ocrngkiefj .gt_font_italic {
   font-style: italic;
 }
 
-#ybaruxsira .gt_super {
+#ocrngkiefj .gt_super {
   font-size: 65%;
 }
 
-#ybaruxsira .gt_footnote_marks {
+#ocrngkiefj .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ybaruxsira .gt_asterisk {
+#ocrngkiefj .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ybaruxsira .gt_indent_1 {
+#ocrngkiefj .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ybaruxsira .gt_indent_2 {
+#ocrngkiefj .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ybaruxsira .gt_indent_3 {
+#ocrngkiefj .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ybaruxsira .gt_indent_4 {
+#ocrngkiefj .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ybaruxsira .gt_indent_5 {
+#ocrngkiefj .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ybaruxsira .katex-display {
+#ocrngkiefj .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ybaruxsira div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ocrngkiefj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2449,7 +2478,7 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>สรุปผล</strong> จากการทดสอบ levene-test พบว่า p-value ได้เท่ากับ 0.8931 มากกว่า 0.05 ดังนั้นจึงตัดสินใจยอมรับสมติฐานหลัก ความแปรปรวน body_mass_g ของเพนกวินสายพันธ์ Adelie ในเพศผู้ในแต่ละเกาะมีความแปรปรวนเท่ากัน</p>
+<p><strong>สรุปผล</strong> จากการทดสอบ levene-test พบว่า p-value ได้เท่ากับ 0.8931 มากกว่า 0.05 ดังนั้นจึงตัดสินใจไม่ปฏิเสธสมมติฐานหลัก ความแปรปรวน body_mass_g ของเพนกวินสายพันธุ์ Adelie ในเพศผู้ในแต่ละเกาะมีความแปรปรวนเท่ากัน</p>
 </div>
 </div>
 </div>
@@ -2460,18 +2489,20 @@ Table&nbsp;4: การทดสอบ levenve ตัวผู้เกาะแ
 <p>กำหนดระดับสำคัญ 0.05</p>
 <p><span class="math display">\[
 \begin{aligned}
-H_0 &amp;:  \sigma^2_{\text{ตัวเมีย, Torgersen}} = \sigma^2_{\text{ตัวเมีย, Dream}} = \sigma^2_{\text{ตัวเมีย, Bisoe}} \\
+H_0 &amp;:  \sigma^2_{\text{ตัวเมีย, Torgersen}} = \sigma^2_{\text{ตัวเมีย, Dream}} = \sigma^2_{\text{ตัวเมีย, Biscoe}} \\
 H_1 &amp;: \text{มีอย่างน้อย 1 กลุ่มที่แตกต่างกัน}
 \end{aligned}
 \]</span></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex<span class="sc">==</span><span class="st">"female"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  { <span class="fu">leveneTest</span>(body_mass_g <span class="sc">~</span> island, <span class="at">data =</span> .) } <span class="sc">%&gt;%</span> </span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"female"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  {</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">leveneTest</span>(body_mass_g <span class="sc">~</span> island, <span class="at">data =</span> .)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  } <span class="sc">%&gt;%</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div id="tbl-levene-female" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -2480,23 +2511,23 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
 </figcaption>
 <div aria-describedby="tbl-levene-female-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="byhrvzxesv" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#byhrvzxesv table {
+<div id="vdqlzqzunf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#vdqlzqzunf table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#byhrvzxesv thead, #byhrvzxesv tbody, #byhrvzxesv tfoot, #byhrvzxesv tr, #byhrvzxesv td, #byhrvzxesv th {
+#vdqlzqzunf thead, #vdqlzqzunf tbody, #vdqlzqzunf tfoot, #vdqlzqzunf tr, #vdqlzqzunf td, #vdqlzqzunf th {
   border-style: none;
 }
 
-#byhrvzxesv p {
+#vdqlzqzunf p {
   margin: 0;
   padding: 0;
 }
 
-#byhrvzxesv .gt_table {
+#vdqlzqzunf .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2522,12 +2553,12 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   border-left-color: #D3D3D3;
 }
 
-#byhrvzxesv .gt_caption {
+#vdqlzqzunf .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#byhrvzxesv .gt_title {
+#vdqlzqzunf .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2539,7 +2570,7 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   border-bottom-width: 0;
 }
 
-#byhrvzxesv .gt_subtitle {
+#vdqlzqzunf .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2551,7 +2582,7 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   border-top-width: 0;
 }
 
-#byhrvzxesv .gt_heading {
+#vdqlzqzunf .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2563,13 +2594,13 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   border-right-color: #D3D3D3;
 }
 
-#byhrvzxesv .gt_bottom_border {
+#vdqlzqzunf .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#byhrvzxesv .gt_col_headings {
+#vdqlzqzunf .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2584,7 +2615,7 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   border-right-color: #D3D3D3;
 }
 
-#byhrvzxesv .gt_col_heading {
+#vdqlzqzunf .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2604,7 +2635,7 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   overflow-x: hidden;
 }
 
-#byhrvzxesv .gt_column_spanner_outer {
+#vdqlzqzunf .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2616,15 +2647,15 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   padding-right: 4px;
 }
 
-#byhrvzxesv .gt_column_spanner_outer:first-child {
+#vdqlzqzunf .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#byhrvzxesv .gt_column_spanner_outer:last-child {
+#vdqlzqzunf .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#byhrvzxesv .gt_column_spanner {
+#vdqlzqzunf .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2636,11 +2667,11 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   width: 100%;
 }
 
-#byhrvzxesv .gt_spanner_row {
+#vdqlzqzunf .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#byhrvzxesv .gt_group_heading {
+#vdqlzqzunf .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2666,7 +2697,7 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   text-align: left;
 }
 
-#byhrvzxesv .gt_empty_group_heading {
+#vdqlzqzunf .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2681,15 +2712,15 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   vertical-align: middle;
 }
 
-#byhrvzxesv .gt_from_md > :first-child {
+#vdqlzqzunf .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#byhrvzxesv .gt_from_md > :last-child {
+#vdqlzqzunf .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#byhrvzxesv .gt_row {
+#vdqlzqzunf .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2708,7 +2739,7 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   overflow-x: hidden;
 }
 
-#byhrvzxesv .gt_stub {
+#vdqlzqzunf .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2721,7 +2752,7 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   padding-right: 5px;
 }
 
-#byhrvzxesv .gt_stub_row_group {
+#vdqlzqzunf .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2735,15 +2766,15 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   vertical-align: top;
 }
 
-#byhrvzxesv .gt_row_group_first td {
+#vdqlzqzunf .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#byhrvzxesv .gt_row_group_first th {
+#vdqlzqzunf .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#byhrvzxesv .gt_summary_row {
+#vdqlzqzunf .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2753,16 +2784,16 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   padding-right: 5px;
 }
 
-#byhrvzxesv .gt_first_summary_row {
+#vdqlzqzunf .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#byhrvzxesv .gt_first_summary_row.thick {
+#vdqlzqzunf .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#byhrvzxesv .gt_last_summary_row {
+#vdqlzqzunf .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2772,7 +2803,7 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   border-bottom-color: #D3D3D3;
 }
 
-#byhrvzxesv .gt_grand_summary_row {
+#vdqlzqzunf .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2782,7 +2813,7 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   padding-right: 5px;
 }
 
-#byhrvzxesv .gt_first_grand_summary_row {
+#vdqlzqzunf .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2792,7 +2823,7 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   border-top-color: #D3D3D3;
 }
 
-#byhrvzxesv .gt_last_grand_summary_row_top {
+#vdqlzqzunf .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2802,11 +2833,11 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   border-bottom-color: #D3D3D3;
 }
 
-#byhrvzxesv .gt_striped {
+#vdqlzqzunf .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#byhrvzxesv .gt_table_body {
+#vdqlzqzunf .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2815,7 +2846,7 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   border-bottom-color: #D3D3D3;
 }
 
-#byhrvzxesv .gt_footnotes {
+#vdqlzqzunf .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2829,7 +2860,7 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   border-right-color: #D3D3D3;
 }
 
-#byhrvzxesv .gt_footnote {
+#vdqlzqzunf .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2838,7 +2869,7 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   padding-right: 5px;
 }
 
-#byhrvzxesv .gt_sourcenotes {
+#vdqlzqzunf .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2852,7 +2883,7 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   border-right-color: #D3D3D3;
 }
 
-#byhrvzxesv .gt_sourcenote {
+#vdqlzqzunf .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2860,72 +2891,72 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
   padding-right: 5px;
 }
 
-#byhrvzxesv .gt_left {
+#vdqlzqzunf .gt_left {
   text-align: left;
 }
 
-#byhrvzxesv .gt_center {
+#vdqlzqzunf .gt_center {
   text-align: center;
 }
 
-#byhrvzxesv .gt_right {
+#vdqlzqzunf .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#byhrvzxesv .gt_font_normal {
+#vdqlzqzunf .gt_font_normal {
   font-weight: normal;
 }
 
-#byhrvzxesv .gt_font_bold {
+#vdqlzqzunf .gt_font_bold {
   font-weight: bold;
 }
 
-#byhrvzxesv .gt_font_italic {
+#vdqlzqzunf .gt_font_italic {
   font-style: italic;
 }
 
-#byhrvzxesv .gt_super {
+#vdqlzqzunf .gt_super {
   font-size: 65%;
 }
 
-#byhrvzxesv .gt_footnote_marks {
+#vdqlzqzunf .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#byhrvzxesv .gt_asterisk {
+#vdqlzqzunf .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#byhrvzxesv .gt_indent_1 {
+#vdqlzqzunf .gt_indent_1 {
   text-indent: 5px;
 }
 
-#byhrvzxesv .gt_indent_2 {
+#vdqlzqzunf .gt_indent_2 {
   text-indent: 10px;
 }
 
-#byhrvzxesv .gt_indent_3 {
+#vdqlzqzunf .gt_indent_3 {
   text-indent: 15px;
 }
 
-#byhrvzxesv .gt_indent_4 {
+#vdqlzqzunf .gt_indent_4 {
   text-indent: 20px;
 }
 
-#byhrvzxesv .gt_indent_5 {
+#vdqlzqzunf .gt_indent_5 {
   text-indent: 25px;
 }
 
-#byhrvzxesv .katex-display {
+#vdqlzqzunf .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#byhrvzxesv div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#vdqlzqzunf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2961,566 +2992,7 @@ Table&nbsp;5: การทดสอบ levenve ตัวเมียเกาะ
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>สรุปผล</strong> จากการทดสอบ levene-test พบว่า p-value ได้เท่ากับ 0.0121 น้อยกว่า 0.05 ดังนั้นจึงตัดสินใจปฏิเสธสมติฐานหลัก และยอมรับสมติฐานแย้ง ความแปรปรวน body_mass_g ของเพนกวินสายพันธ์ Adelie ในเพศเมียในแต่ละเกาะมีความแปรปรวนไม่เท่ากัน</p>
-</div>
-</div>
-</div>
-<p><br></p>
-<p>หลังจากที่เรารู้แล้วว่ามีความแปรรวนอย่างน้อย 1 ตัวไม่เท่ากับความแปรปรวนของกลุ่มอื่นดังนั้นจะใช้การทดสอบความเท่ากันของความแปรปรวน F-test ในการตรวจว่าความแปรปรวนในกลุ่มไหนที่ไม่เหมือนกัน</p>
-<p>กำหนดค่าระดับนัยสำคัญ 0.05</p>
-<span class="math display">\[\begin{aligned}
-% คู่ที่ 1: Torgersen vs Dream
-H_{01} &amp;: \sigma^2_{\text{เมีย, Torgersen}} = \sigma^2_{\text{เมีย, Dream}} \\
-H_{11} &amp;: \sigma^2_{\text{เมีย, Torgersen}} \neq \sigma^2_{\text{เมีย, Dream}} \\[1ex]
-
-% คู่ที่ 2: Torgersen vs Biscoe
-H_{02} &amp;: \sigma^2_{\text{เมีย, Torgersen}} = \sigma^2_{\text{เมีย, Biscoe}} \\
-H_{12} &amp;: \sigma^2_{\text{เมีย, Torgersen}} \neq \sigma^2_{\text{เมีย, Biscoe}} \\[1ex]
-
-% คู่ที่ 3: Dream vs Biscoe
-H_{03} &amp;: \sigma^2_{\text{เมีย, Dream}} = \sigma^2_{\text{เมีย, Biscoe}} \\
-H_{13} &amp;: \sigma^2_{\text{เมีย, Dream}} \neq \sigma^2_{\text{เมีย, Biscoe}}
-\end{aligned}\]</span>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>pair.ftest.adelie <span class="ot">&lt;-</span> <span class="cf">function</span>(var1, var2) {</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    adelie <span class="sc">%&gt;%</span> </span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"female"</span>, island <span class="sc">%in%</span> <span class="fu">c</span>(var1, var2)) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  {<span class="fu">var.test</span>(body_mass_g <span class="sc">~</span> island,<span class="at">data=</span>.)} <span class="sc">%&gt;%</span> </span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="fu">map2_dfr</span>(</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">.x =</span> <span class="fu">c</span>(<span class="st">"Torgersen"</span>, <span class="st">"Torgersen"</span>, <span class="st">"Dream"</span>),</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">.y =</span> <span class="fu">c</span>(<span class="st">"Dream"</span>, <span class="st">"Biscoe"</span>, <span class="st">"Biscoe"</span>),</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">.f =</span> pair.ftest.adelie)  <span class="sc">%&gt;%</span> </span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group_compare =</span> <span class="fu">c</span>(<span class="st">"Torgersen vs Dream"</span>,<span class="st">"Torgersen vs Biscoe"</span>, <span class="st">"Dream vs Biscoe"</span> )) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(group_compare, <span class="fu">everything</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(method, conf.low, conf.high)) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div id="tbl-ftest-pair-female" class="cell quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ftest-pair-female-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;6: การทดสอบ f-test สำหรับหาคู่ตัวเมียเกาะแตกต่างกัน ที่ความแปรปรวนไม่เท่ากัน
-</figcaption>
-<div aria-describedby="tbl-ftest-pair-female-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="cell-output-display">
-<div id="hfcihplums" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#hfcihplums table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#hfcihplums thead, #hfcihplums tbody, #hfcihplums tfoot, #hfcihplums tr, #hfcihplums td, #hfcihplums th {
-  border-style: none;
-}
-
-#hfcihplums p {
-  margin: 0;
-  padding: 0;
-}
-
-#hfcihplums .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#hfcihplums .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#hfcihplums .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#hfcihplums .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#hfcihplums .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#hfcihplums .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#hfcihplums .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#hfcihplums .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#hfcihplums .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#hfcihplums .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#hfcihplums .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#hfcihplums .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#hfcihplums .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#hfcihplums .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#hfcihplums .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#hfcihplums .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#hfcihplums .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#hfcihplums .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#hfcihplums .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hfcihplums .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#hfcihplums .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#hfcihplums .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#hfcihplums .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hfcihplums .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#hfcihplums .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#hfcihplums .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#hfcihplums .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hfcihplums .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#hfcihplums .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#hfcihplums .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#hfcihplums .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#hfcihplums .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#hfcihplums .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hfcihplums .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#hfcihplums .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#hfcihplums .gt_left {
-  text-align: left;
-}
-
-#hfcihplums .gt_center {
-  text-align: center;
-}
-
-#hfcihplums .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#hfcihplums .gt_font_normal {
-  font-weight: normal;
-}
-
-#hfcihplums .gt_font_bold {
-  font-weight: bold;
-}
-
-#hfcihplums .gt_font_italic {
-  font-style: italic;
-}
-
-#hfcihplums .gt_super {
-  font-size: 65%;
-}
-
-#hfcihplums .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#hfcihplums .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#hfcihplums .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#hfcihplums .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#hfcihplums .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#hfcihplums .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#hfcihplums .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#hfcihplums .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#hfcihplums div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-
-<table class="gt_table cell caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
-<thead>
-<tr class="gt_col_headings header">
-<th id="group_compare" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">group_compare</th>
-<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">estimate</th>
-<th id="num.df" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">num.df</th>
-<th id="den.df" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">den.df</th>
-<th id="statistic" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">statistic</th>
-<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p.value</th>
-<th id="alternative" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">alternative</th>
-</tr>
-</thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_left" headers="group_compare">Torgersen vs Dream</td>
-<td class="gt_row gt_right" headers="estimate">0.6696064</td>
-<td class="gt_row gt_right" headers="num.df">26</td>
-<td class="gt_row gt_right" headers="den.df">23</td>
-<td class="gt_row gt_right" headers="statistic">0.6696064</td>
-<td class="gt_row gt_right" headers="p.value">0.32231446</td>
-<td class="gt_row gt_left" headers="alternative">two.sided</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_left" headers="group_compare">Torgersen vs Biscoe</td>
-<td class="gt_row gt_right" headers="estimate">1.7566932</td>
-<td class="gt_row gt_right" headers="num.df">21</td>
-<td class="gt_row gt_right" headers="den.df">23</td>
-<td class="gt_row gt_right" headers="statistic">1.7566932</td>
-<td class="gt_row gt_right" headers="p.value">0.19065166</td>
-<td class="gt_row gt_left" headers="alternative">two.sided</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_left" headers="group_compare">Dream vs Biscoe</td>
-<td class="gt_row gt_right" headers="estimate">2.6234715</td>
-<td class="gt_row gt_right" headers="num.df">21</td>
-<td class="gt_row gt_right" headers="den.df">26</td>
-<td class="gt_row gt_right" headers="statistic">2.6234715</td>
-<td class="gt_row gt_right" headers="p.value">0.02087381</td>
-<td class="gt_row gt_left" headers="alternative">two.sided</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-</figure>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>สรุปผล</strong> จากการทดสอบความแปรปรวนเท่ากันด้วย <strong>F-test</strong> ที่ระดับความสำคัญทางสถิติ <span class="math inline">\(\alpha = 0.05\)</span> พบว่า เกาะ Torgersen vs Dream และ Torgersen vs Biscoe มีค่า p-value มากกว่า <span class="math inline">\(0.05\)</span> ในขณะที่เกาะ Dream vs Biscoe มีค่า p-value น้อยกว่า <span class="math inline">\(0.05\)</span></p>
-<p><strong>จึงทำการตัดสินใจ:</strong></p>
-<ul>
-<li><p><strong>ยอมรับ</strong> <span class="math inline">\(H_{01}\)</span> และ <span class="math inline">\(H_{02}\)</span> สำหรับเกาะ Torgersen vs Dream และ Torgersen vs Biscoe ตามลำดับ สรุปได้ว่าความแปรปรวนของน้ำหนักตัว (<span class="math inline">\(body\_mass\_g\)</span>) <strong>ไม่แตกต่างกัน</strong></p></li>
-<li><p><strong>ปฏิเสธ</strong> <span class="math inline">\(H_{03}\)</span> สำหรับเกาะ Dream vs Biscoe สรุปได้ว่าความแปรปรวนของน้ำหนักตัว (<span class="math inline">\(body\_mass\_g\)</span>) <strong>มีความแตกต่างกัน</strong> อย่างมีนัยสำคัญทางสถิติ</p></li>
-</ul>
-<p><strong>ข้อสรุปภาพรวม:</strong> ความเท่ากันของความแปรปรวนน้ำหนักเพนกวินเพศเมีย มีเกาะที่แตกต่างกันคือเกาะ Dream และ Biscoe</p>
+<p><strong>สรุปผล</strong> จากการทดสอบ levene-test พบว่า p-value ได้เท่ากับ 0.0121 น้อยกว่า 0.05 ดังนั้นจึงตัดสินใจปฏิเสธสมมติฐานหลัก ความแปรปรวน body_mass_g ของเพนกวินสายพันธุ์ Adelie ในเพศเมียในแต่ละเกาะมีความแปรปรวนไม่เท่ากัน</p>
 </div>
 </div>
 </div>
@@ -3530,25 +3002,25 @@ Table&nbsp;6: การทดสอบ f-test สำหรับหาคู่�
 <section id="การทดสอบคาเฉลยของนำหนกตว" class="level3">
 <h3 class="anchored" data-anchor-id="การทดสอบคาเฉลยของนำหนกตว">การทดสอบค่าเฉลี่ยของน้ำหนักตัว</h3>
 <ul>
-<li>ก่อนจะไปทำการทดสอบว่าค่าเฉลี่ยเพนกวินในแต่ละเกาะต่างกันไหม จะทำการตรวจสอบว่าค่าเฉลี่ยน้ำหนักของตัวผู้และตัวเมียแตกต่างกันหรือไม่ เพื่อตัดสินใจที่จะเปรียบเทียบรวมทั้งเพศเมียและเพศผู้ด้วยเลย เมื่อค่าเฉลี่ยของตัวผู้และตัวเมียในแต่ละเกาะไม่แตกต่างกัน แต่ถ้าค่าเฉลี่ยของตัวผู้และตัวเมียแตกต่างกัน จะทำการเปรียบเทียบแบบแต่ละเกาะแต่ แยกเพศ</li>
+<li>ก่อนเปรียบเทียบค่าเฉลี่ยระหว่างเกาะ จะตรวจสอบก่อนว่าเพศผู้และเพศเมียมีค่าเฉลี่ยต่างกันหรือไม่ ถ้าไม่ต่างกัน จะรวมสองเพศเปรียบเทียบพร้อมกัน แต่ถ้าต่างกัน จะเปรียบเทียบระหว่างเกาะโดยแยกตามเพศ</li>
 </ul>
 <p><strong>จากการทดสอบการแจกแจงปกติและความเท่ากันของความแปรปรวนทำให้เรารู้ว่า</strong></p>
 <ul>
-<li><p>การแจงแจงของทุกกลุ่มมีการแจกแจงปกติ (<a href="#tbl-shapiro" class="quarto-xref">Table&nbsp;2</a>)</p></li>
-<li><p>ความแปรปรวนในเพศผู้แต่คนละเกาะเท่ากันในทั้ง 3 เกาะ (<a href="#tbl-levene-male" class="quarto-xref">Table&nbsp;4</a>) แต่สำหรับเพศเมียมี 2 คู่ที่ความแปรปรวนเท่ากันคือ เกาะ Torgersen Dream และ Torgersen Biscoe ส่วนคู่ที่ไม่เท่ากันคือ Dream biscoe (<a href="#tbl-ftest-pair-female" class="quarto-xref">Table&nbsp;6</a>)</p></li>
+<li><p>การแจกแจงของทุกกลุ่มมีการแจกแจงปกติ (<a href="#tbl-shapiro" class="quarto-xref">Table&nbsp;2</a>)</p></li>
+<li><p>ความแปรปรวนของ body_mass_g ในเพศผู้แต่คนละเกาะเท่ากันในทั้ง 3 เกาะ (<a href="#tbl-levene-male" class="quarto-xref">Table&nbsp;4</a>) แต่สำหรับความแปรปรวน body_mass_g เพศเมีย ในแต่ละเกาะมีอย่างน้อย 1 เกาะที่ความแปรปรวนไม่เท่ากัน (<a href="#tbl-levene-female" class="quarto-xref">Table&nbsp;5</a>)</p></li>
 </ul>
 <p><br></p>
 </section>
 <section id="การทดสอบความเทากนของคาเฉลยระหวางเพนกวนเพศผและเพนกวนเพศเมยในเกาะเดยวกน" class="level3">
 <h3 class="anchored" data-anchor-id="การทดสอบความเทากนของคาเฉลยระหวางเพนกวนเพศผและเพนกวนเพศเมยในเกาะเดยวกน">การทดสอบความเท่ากันของค่าเฉลี่ยระหว่างเพนกวินเพศผู้และเพนกวินเพศเมียในเกาะเดียวกัน</h3>
 <ul>
-<li><p>การแจกแจงของทุกกลุ่มที่จะนำมาเปรียบเทียบเป็นการแจกแจงปกติ</p></li>
-<li><p>ความเท่ากันของความแปรปรวนระหว่างเพนกวินเพศผู้และเพศเมียในเกาะเดียวกันมีความแปรปรวนเท่ากันยกเว้นเกาะ Dream ที่มีความแปรปรวนไม่เท่ากันระหว่างเพนกวินเพศผู้และเพศเมีย (<a href="#tbl-ftest-pair-female" class="quarto-xref">Table&nbsp;6</a>)</p></li>
+<li><p>การแจกแจงของทุกกลุ่มที่จะนำมาเปรียบเทียบเป็นการแจกแจงปกติ (<a href="#tbl-shapiro" class="quarto-xref">Table&nbsp;2</a>)</p></li>
+<li><p>ความเท่ากันของความแปรปรวนระหว่างเพนกวินเพศผู้และเพศเมียในเกาะเดียวกันมีความแปรปรวนเท่ากันยกเว้นเกาะ Dream ที่มีความแปรปรวนไม่เท่ากันระหว่างเพนกวินเพศผู้และเพศเมีย (<a href="#tbl-F-test-male-vs-female-same-island" class="quarto-xref">Table&nbsp;3</a>)</p></li>
 </ul>
 <p><strong>สำหรับวิธีการเปรียบเทียบค่าเฉลี่ย</strong></p>
 <ul>
 <li><p>t-test ความแปรปรวนเท่ากันสำหรับเกาะ Torgersen และ Biscoe</p></li>
-<li><p>t-test ความแปรวปรวนไม่เท่ากันสำหรับเกาะ Dream</p></li>
+<li><p>t-test ความแปรปรวนไม่เท่ากันสำหรับเกาะ Dream</p></li>
 </ul>
 <p><br></p>
 <section id="การทดสอบความเทากนของคาเฉลย-body_mass_g-ระหวางเพศผและเพศเมยในเกาะเดยวกน" class="level4">
@@ -3569,54 +3041,58 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>t.test.mf <span class="ot">&lt;-</span> <span class="cf">function</span>(isl, <span class="at">var.e=</span>F) {</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>male.m <span class="ot">&lt;-</span> adelie <span class="sc">%&gt;%</span> </span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(island <span class="sc">==</span> isl, sex<span class="sc">==</span><span class="st">'male'</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(body_mass_g)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>t.test.mf <span class="ot">&lt;-</span> <span class="cf">function</span>(isl, <span class="at">var.e =</span> F) {</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  male.m <span class="ot">&lt;-</span> adelie <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(island <span class="sc">==</span> isl, sex <span class="sc">==</span> <span class="st">'male'</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(body_mass_g)</span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>female.m <span class="ot">&lt;-</span> adelie <span class="sc">%&gt;%</span> </span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(island <span class="sc">==</span> isl, sex<span class="sc">==</span><span class="st">"female"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(body_mass_g)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  female.m <span class="ot">&lt;-</span> adelie <span class="sc">%&gt;%</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(island <span class="sc">==</span> isl, sex <span class="sc">==</span> <span class="st">"female"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(body_mass_g)</span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">t.test</span>(male.m, female.m, <span class="at">var.equal=</span>var.e, <span class="at">alternative=</span><span class="st">"two.sided"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="fu">return</span>(result)</span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">t.test</span>(</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    male.m,</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    female.m,</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">var.equal =</span> var.e,</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">alternative =</span> <span class="st">"two.sided"</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tidy</span>()</span>
 <span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="fu">map2_dfr</span>(</span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">.x =</span> <span class="fu">c</span>(<span class="st">"Torgersen"</span>, <span class="st">"Biscoe"</span>, <span class="st">"Dream"</span>),</span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">.y =</span> <span class="fu">c</span>(T, T, F),</span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">.f =</span> t.test.mf</span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(estimate, estimate1, estimate2, conf.low, conf.high)) <span class="sc">%&gt;%</span> </span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">island =</span> <span class="fu">c</span>(<span class="st">"Torgersen"</span>, <span class="st">"Biscoe"</span>, <span class="st">"Dream"</span>),</span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.value =</span> <span class="fu">pvalue</span>(p.value)</span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(island, <span class="fu">everything</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="fu">map2_dfr</span>(</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">.x =</span> <span class="fu">c</span>(<span class="st">"Torgersen"</span>, <span class="st">"Biscoe"</span>, <span class="st">"Dream"</span>),</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">.y =</span> <span class="fu">c</span>(T, T, F),</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">.f =</span> t.test.mf</span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(conf.low, conf.high)) <span class="sc">%&gt;%</span></span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">island =</span> <span class="fu">c</span>(<span class="st">"Torgersen"</span>, <span class="st">"Biscoe"</span>, <span class="st">"Dream"</span>),</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.value =</span> <span class="fu">pvalue</span>(p.value)</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(island, <span class="fu">everything</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
-<div id="fqeoiuootf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fqeoiuootf table {
+<div id="tdfqrpvpfp" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tdfqrpvpfp table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#fqeoiuootf thead, #fqeoiuootf tbody, #fqeoiuootf tfoot, #fqeoiuootf tr, #fqeoiuootf td, #fqeoiuootf th {
+#tdfqrpvpfp thead, #tdfqrpvpfp tbody, #tdfqrpvpfp tfoot, #tdfqrpvpfp tr, #tdfqrpvpfp td, #tdfqrpvpfp th {
   border-style: none;
 }
 
-#fqeoiuootf p {
+#tdfqrpvpfp p {
   margin: 0;
   padding: 0;
 }
 
-#fqeoiuootf .gt_table {
+#tdfqrpvpfp .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3642,12 +3118,12 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   border-left-color: #D3D3D3;
 }
 
-#fqeoiuootf .gt_caption {
+#tdfqrpvpfp .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fqeoiuootf .gt_title {
+#tdfqrpvpfp .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -3659,7 +3135,7 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   border-bottom-width: 0;
 }
 
-#fqeoiuootf .gt_subtitle {
+#tdfqrpvpfp .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -3671,7 +3147,7 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   border-top-width: 0;
 }
 
-#fqeoiuootf .gt_heading {
+#tdfqrpvpfp .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3683,13 +3159,13 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   border-right-color: #D3D3D3;
 }
 
-#fqeoiuootf .gt_bottom_border {
+#tdfqrpvpfp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fqeoiuootf .gt_col_headings {
+#tdfqrpvpfp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3704,7 +3180,7 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   border-right-color: #D3D3D3;
 }
 
-#fqeoiuootf .gt_col_heading {
+#tdfqrpvpfp .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3724,7 +3200,7 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   overflow-x: hidden;
 }
 
-#fqeoiuootf .gt_column_spanner_outer {
+#tdfqrpvpfp .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3736,15 +3212,15 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   padding-right: 4px;
 }
 
-#fqeoiuootf .gt_column_spanner_outer:first-child {
+#tdfqrpvpfp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fqeoiuootf .gt_column_spanner_outer:last-child {
+#tdfqrpvpfp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fqeoiuootf .gt_column_spanner {
+#tdfqrpvpfp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3756,11 +3232,11 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   width: 100%;
 }
 
-#fqeoiuootf .gt_spanner_row {
+#tdfqrpvpfp .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#fqeoiuootf .gt_group_heading {
+#tdfqrpvpfp .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3786,7 +3262,7 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   text-align: left;
 }
 
-#fqeoiuootf .gt_empty_group_heading {
+#tdfqrpvpfp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3801,15 +3277,15 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   vertical-align: middle;
 }
 
-#fqeoiuootf .gt_from_md > :first-child {
+#tdfqrpvpfp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fqeoiuootf .gt_from_md > :last-child {
+#tdfqrpvpfp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fqeoiuootf .gt_row {
+#tdfqrpvpfp .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3828,7 +3304,7 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   overflow-x: hidden;
 }
 
-#fqeoiuootf .gt_stub {
+#tdfqrpvpfp .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3841,7 +3317,7 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   padding-right: 5px;
 }
 
-#fqeoiuootf .gt_stub_row_group {
+#tdfqrpvpfp .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3855,15 +3331,15 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   vertical-align: top;
 }
 
-#fqeoiuootf .gt_row_group_first td {
+#tdfqrpvpfp .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fqeoiuootf .gt_row_group_first th {
+#tdfqrpvpfp .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#fqeoiuootf .gt_summary_row {
+#tdfqrpvpfp .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3873,16 +3349,16 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   padding-right: 5px;
 }
 
-#fqeoiuootf .gt_first_summary_row {
+#tdfqrpvpfp .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fqeoiuootf .gt_first_summary_row.thick {
+#tdfqrpvpfp .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fqeoiuootf .gt_last_summary_row {
+#tdfqrpvpfp .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3892,7 +3368,7 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   border-bottom-color: #D3D3D3;
 }
 
-#fqeoiuootf .gt_grand_summary_row {
+#tdfqrpvpfp .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3902,7 +3378,7 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   padding-right: 5px;
 }
 
-#fqeoiuootf .gt_first_grand_summary_row {
+#tdfqrpvpfp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3912,7 +3388,7 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   border-top-color: #D3D3D3;
 }
 
-#fqeoiuootf .gt_last_grand_summary_row_top {
+#tdfqrpvpfp .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3922,11 +3398,11 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   border-bottom-color: #D3D3D3;
 }
 
-#fqeoiuootf .gt_striped {
+#tdfqrpvpfp .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fqeoiuootf .gt_table_body {
+#tdfqrpvpfp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3935,7 +3411,7 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   border-bottom-color: #D3D3D3;
 }
 
-#fqeoiuootf .gt_footnotes {
+#tdfqrpvpfp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3949,7 +3425,7 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   border-right-color: #D3D3D3;
 }
 
-#fqeoiuootf .gt_footnote {
+#tdfqrpvpfp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3958,7 +3434,7 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   padding-right: 5px;
 }
 
-#fqeoiuootf .gt_sourcenotes {
+#tdfqrpvpfp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3972,7 +3448,7 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   border-right-color: #D3D3D3;
 }
 
-#fqeoiuootf .gt_sourcenote {
+#tdfqrpvpfp .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3980,72 +3456,72 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
   padding-right: 5px;
 }
 
-#fqeoiuootf .gt_left {
+#tdfqrpvpfp .gt_left {
   text-align: left;
 }
 
-#fqeoiuootf .gt_center {
+#tdfqrpvpfp .gt_center {
   text-align: center;
 }
 
-#fqeoiuootf .gt_right {
+#tdfqrpvpfp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fqeoiuootf .gt_font_normal {
+#tdfqrpvpfp .gt_font_normal {
   font-weight: normal;
 }
 
-#fqeoiuootf .gt_font_bold {
+#tdfqrpvpfp .gt_font_bold {
   font-weight: bold;
 }
 
-#fqeoiuootf .gt_font_italic {
+#tdfqrpvpfp .gt_font_italic {
   font-style: italic;
 }
 
-#fqeoiuootf .gt_super {
+#tdfqrpvpfp .gt_super {
   font-size: 65%;
 }
 
-#fqeoiuootf .gt_footnote_marks {
+#tdfqrpvpfp .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#fqeoiuootf .gt_asterisk {
+#tdfqrpvpfp .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fqeoiuootf .gt_indent_1 {
+#tdfqrpvpfp .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fqeoiuootf .gt_indent_2 {
+#tdfqrpvpfp .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fqeoiuootf .gt_indent_3 {
+#tdfqrpvpfp .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fqeoiuootf .gt_indent_4 {
+#tdfqrpvpfp .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fqeoiuootf .gt_indent_5 {
+#tdfqrpvpfp .gt_indent_5 {
   text-indent: 25px;
 }
 
-#fqeoiuootf .katex-display {
+#tdfqrpvpfp .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#fqeoiuootf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#tdfqrpvpfp div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -4054,6 +3530,9 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
 <thead>
 <tr class="gt_col_headings header">
 <th id="island" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">island</th>
+<th id="estimate" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">estimate</th>
+<th id="estimate1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">estimate1</th>
+<th id="estimate2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">estimate2</th>
 <th id="statistic" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">statistic</th>
 <th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">p.value</th>
 <th id="parameter" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">parameter</th>
@@ -4064,6 +3543,9 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="island">Torgersen</td>
+<td class="gt_row gt_right" headers="estimate">638.9493</td>
+<td class="gt_row gt_right" headers="estimate1">4034.783</td>
+<td class="gt_row gt_right" headers="estimate2">3395.833</td>
 <td class="gt_row gt_right" headers="statistic">6.851213</td>
 <td class="gt_row gt_left" headers="p.value">&lt;0.001</td>
 <td class="gt_row gt_right" headers="parameter">45.00000</td>
@@ -4072,6 +3554,9 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
 </tr>
 <tr class="even">
 <td class="gt_row gt_left" headers="island">Biscoe</td>
+<td class="gt_row gt_right" headers="estimate">680.6818</td>
+<td class="gt_row gt_right" headers="estimate1">4050.000</td>
+<td class="gt_row gt_right" headers="estimate2">3369.318</td>
 <td class="gt_row gt_right" headers="statistic">6.458093</td>
 <td class="gt_row gt_left" headers="p.value">&lt;0.001</td>
 <td class="gt_row gt_right" headers="parameter">42.00000</td>
@@ -4080,6 +3565,9 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
 </tr>
 <tr class="odd">
 <td class="gt_row gt_left" headers="island">Dream</td>
+<td class="gt_row gt_right" headers="estimate">701.0913</td>
+<td class="gt_row gt_right" headers="estimate1">4045.536</td>
+<td class="gt_row gt_right" headers="estimate2">3344.444</td>
 <td class="gt_row gt_right" headers="statistic">9.395875</td>
 <td class="gt_row gt_left" headers="p.value">&lt;0.001</td>
 <td class="gt_row gt_right" headers="parameter">46.22208</td>
@@ -4098,7 +3586,7 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>สรุปผล</strong> จากการทดสอบความเท่ากันของค่าเฉลี่ยด้วย <strong>t-test</strong> เมื่อความแปรปรวนทำเท่ากันและไม่เท่ากัน ที่ระดับนัยทางสถิติ <span class="math inline">\(\alpha =0.05\)</span> พบว่า p-value ของทุกเกาะน้อยกว่า <span class="math inline">\(0.05\)</span> จึงทำ <strong>การปฏิเสธ</strong> <span class="math inline">\(H_{01}\)</span> <span class="math inline">\(H_{02}\)</span> และ <span class="math inline">\(H_{03}\)</span></p>
+<p><strong>สรุปผล</strong> จากการทดสอบความเท่ากันของค่าเฉลี่ยด้วย <strong>t-test</strong> เมื่อความแปรปรวนเท่ากันและไม่เท่ากัน ที่ระดับนัยทางสถิติ <span class="math inline">\(\alpha =0.05\)</span> พบว่า p-value ของทุกเกาะน้อยกว่า <span class="math inline">\(0.05\)</span> จึงทำ <strong>การปฏิเสธ</strong> <span class="math inline">\(H_{01}\)</span> <span class="math inline">\(H_{02}\)</span> และ <span class="math inline">\(H_{03}\)</span></p>
 <p>สรุปได้ว่าเพนกวินสายพันธุ์ adelie ตัวผู้และตัวเมีย มีค่าเฉลี่ยที่ไม่เท่ากันในทุกเกาะ</p>
 </div>
 </div>
@@ -4106,49 +3594,1043 @@ H_{13} &amp;: \mu_{\text{ผู้, Dream}} \neq \mu_{\text{เมีย, Dream}
 </section>
 </section>
 </section>
-<section id="การทดสอบสมตฐานหลก" class="level2">
-<h2 class="anchored" data-anchor-id="การทดสอบสมตฐานหลก">การทดสอบสมติฐานหลัก</h2>
+<section id="การทดสอบสมมตฐานหลก" class="level2">
+<h2 class="anchored" data-anchor-id="การทดสอบสมมตฐานหลก">การทดสอบสมมติฐานหลัก</h2>
+<section id="การทดสอบความเทากนของคาเฉลย-body_mass_g-ระหวางเกาะ" class="level3">
+<h3 class="anchored" data-anchor-id="การทดสอบความเทากนของคาเฉลย-body_mass_g-ระหวางเกาะ">การทดสอบความเท่ากันของค่าเฉลี่ย body_mass_g ระหว่างเกาะ</h3>
+<p><br></p>
+<p>สำหรับวิธีการทดสอบความเท่ากันของค่าเฉลี่ยน body_mass_g เพนกวินสายพันธุ์ Adelie จะใช้เป็น One-way ANOVA ความแปรปรวนเท่ากันสำหรับเพศผู้ และ Welch’s ANOVA ความแปรปรวนไม่เท่ากันสำหรับเพศเมีย ทั้งคู่กำหนดระดับนัยสำคัญ 0.05 ทั้งคู่<br>
+</p>
+<section id="เพศผ-one-way-anova" class="level4">
+<h4 class="anchored" data-anchor-id="เพศผ-one-way-anova">เพศผู้ (One-way ANOVA)</h4>
 <span class="math display">\[\begin{aligned}
 
-H_0 &amp;: \mu_{ตัวผู้, Torgersen}=\mu_{ตัวผู้, Dream}=\mu_{ตัวผู้ , Beiscoe}\\
+H_0 &amp;: \mu_{ตัวผู้, Torgersen}=\mu_{ตัวผู้, Dream}=\mu_{ตัวผู้ , Biscoe}\\
 H_1 &amp;: \text{ มีอย่างน้อย 1 กลุ่มที่แตกต่างกัน}
 
 \end{aligned}\]</span>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="sc">%&gt;%</span> </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex<span class="sc">==</span><span class="st">"male"</span>) <span class="sc">%$%</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aov</span>(body_mass_g <span class="sc">~</span> island) <span class="sc">%&gt;%</span></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"male"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  {<span class="fu">aov</span>(body_mass_g <span class="sc">~</span> island, <span class="at">data=</span>.)} <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>            Df  Sum Sq Mean Sq F value Pr(&gt;F)
-island       2    2793    1397   0.011  0.989
-Residuals   70 8657241  123675               </code></pre>
+<div class="cell-output-display">
+<div id="fpqehrqtxr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#fpqehrqtxr table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#fpqehrqtxr thead, #fpqehrqtxr tbody, #fpqehrqtxr tfoot, #fpqehrqtxr tr, #fpqehrqtxr td, #fpqehrqtxr th {
+  border-style: none;
+}
+
+#fpqehrqtxr p {
+  margin: 0;
+  padding: 0;
+}
+
+#fpqehrqtxr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#fpqehrqtxr .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#fpqehrqtxr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#fpqehrqtxr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#fpqehrqtxr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fpqehrqtxr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fpqehrqtxr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#fpqehrqtxr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#fpqehrqtxr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#fpqehrqtxr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#fpqehrqtxr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#fpqehrqtxr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#fpqehrqtxr .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#fpqehrqtxr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#fpqehrqtxr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#fpqehrqtxr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#fpqehrqtxr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#fpqehrqtxr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#fpqehrqtxr .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fpqehrqtxr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#fpqehrqtxr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#fpqehrqtxr .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#fpqehrqtxr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fpqehrqtxr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#fpqehrqtxr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#fpqehrqtxr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fpqehrqtxr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fpqehrqtxr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#fpqehrqtxr .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fpqehrqtxr .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#fpqehrqtxr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#fpqehrqtxr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fpqehrqtxr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fpqehrqtxr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#fpqehrqtxr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#fpqehrqtxr .gt_left {
+  text-align: left;
+}
+
+#fpqehrqtxr .gt_center {
+  text-align: center;
+}
+
+#fpqehrqtxr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#fpqehrqtxr .gt_font_normal {
+  font-weight: normal;
+}
+
+#fpqehrqtxr .gt_font_bold {
+  font-weight: bold;
+}
+
+#fpqehrqtxr .gt_font_italic {
+  font-style: italic;
+}
+
+#fpqehrqtxr .gt_super {
+  font-size: 65%;
+}
+
+#fpqehrqtxr .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#fpqehrqtxr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#fpqehrqtxr .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#fpqehrqtxr .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#fpqehrqtxr .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#fpqehrqtxr .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#fpqehrqtxr .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#fpqehrqtxr .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#fpqehrqtxr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="term" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">term</th>
+<th id="df" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">df</th>
+<th id="sumsq" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">sumsq</th>
+<th id="meansq" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">meansq</th>
+<th id="statistic" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">statistic</th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p.value</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="term">island</td>
+<td class="gt_row gt_right" headers="df">2</td>
+<td class="gt_row gt_right" headers="sumsq">2793.369</td>
+<td class="gt_row gt_right" headers="meansq">1396.685</td>
+<td class="gt_row gt_right" headers="statistic">0.0112932</td>
+<td class="gt_row gt_right" headers="p.value">0.9887721</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="term">Residuals</td>
+<td class="gt_row gt_right" headers="df">70</td>
+<td class="gt_row gt_right" headers="sumsq">8657240.877</td>
+<td class="gt_row gt_right" headers="meansq">123674.870</td>
+<td class="gt_row gt_right" headers="statistic">NA</td>
+<td class="gt_row gt_right" headers="p.value">NA</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>สรุปผล</strong> ผลจากการวิเคราะห์ One-way ANOVA พบว่า p-value เท่ากับ 0.989 ซึ่งมากกว่าระดับนัยสำคัญ 0.05 จึงตัดสินใจไม่ปฏิเสธ สมมติฐานว่าค่าเฉลี่ยของเพศผู้เกาะ Torgersen Dream และ Biscoe ไม่แตกต่างกัน</p>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="เพศเมย-welchs-anova" class="level4">
+<h4 class="anchored" data-anchor-id="เพศเมย-welchs-anova">เพศเมีย (Welch’s ANOVA)</h4>
 <span class="math display">\[\begin{aligned}
 
-H_0 &amp;: \mu_{ตัวเมีย, Torgersen}=\mu_{ตัวเมีย, Dream}=\mu_{ตัวเมีย , Beiscoe}\\
+H_0 &amp;: \mu_{ตัวเมีย, Torgersen}=\mu_{ตัวเมีย, Dream}=\mu_{ตัวเมีย , Biscoe}\\
 H_1 &amp;: \text{ มีอย่างน้อย 1 กลุ่มที่แตกต่างกัน}
 
 \end{aligned}\]</span>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="sc">%&gt;%</span> </span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex<span class="sc">==</span><span class="st">"female"</span>) <span class="sc">%$%</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">oneway.test</span>(body_mass_g <span class="sc">~</span> island, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>adelie <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sex <span class="sc">==</span> <span class="st">"female"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  { <span class="fu">oneway.test</span>(body_mass_g <span class="sc">~</span> island, <span class="at">data =</span> ., <span class="at">var.equal =</span> <span class="cn">FALSE</span>) } <span class="sc">%&gt;%</span> </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    One-way analysis of means (not assuming equal variances)
+<div class="cell-output cell-output-stderr">
+<pre><code>Multiple parameters; naming those columns num.df and den.df.</code></pre>
+</div>
+<div class="cell-output-display">
+<div id="kxfuoemslc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kxfuoemslc table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-data:  body_mass_g and island
-F = 0.29375, num df = 2.00, denom df = 42.59, p-value = 0.747</code></pre>
+#kxfuoemslc thead, #kxfuoemslc tbody, #kxfuoemslc tfoot, #kxfuoemslc tr, #kxfuoemslc td, #kxfuoemslc th {
+  border-style: none;
+}
+
+#kxfuoemslc p {
+  margin: 0;
+  padding: 0;
+}
+
+#kxfuoemslc .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#kxfuoemslc .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#kxfuoemslc .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#kxfuoemslc .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#kxfuoemslc .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kxfuoemslc .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kxfuoemslc .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kxfuoemslc .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#kxfuoemslc .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#kxfuoemslc .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#kxfuoemslc .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#kxfuoemslc .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#kxfuoemslc .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#kxfuoemslc .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#kxfuoemslc .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#kxfuoemslc .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#kxfuoemslc .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#kxfuoemslc .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#kxfuoemslc .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kxfuoemslc .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#kxfuoemslc .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#kxfuoemslc .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#kxfuoemslc .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kxfuoemslc .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#kxfuoemslc .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#kxfuoemslc .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kxfuoemslc .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kxfuoemslc .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#kxfuoemslc .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kxfuoemslc .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#kxfuoemslc .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kxfuoemslc .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kxfuoemslc .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kxfuoemslc .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kxfuoemslc .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kxfuoemslc .gt_left {
+  text-align: left;
+}
+
+#kxfuoemslc .gt_center {
+  text-align: center;
+}
+
+#kxfuoemslc .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#kxfuoemslc .gt_font_normal {
+  font-weight: normal;
+}
+
+#kxfuoemslc .gt_font_bold {
+  font-weight: bold;
+}
+
+#kxfuoemslc .gt_font_italic {
+  font-style: italic;
+}
+
+#kxfuoemslc .gt_super {
+  font-size: 65%;
+}
+
+#kxfuoemslc .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#kxfuoemslc .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#kxfuoemslc .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#kxfuoemslc .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#kxfuoemslc .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#kxfuoemslc .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#kxfuoemslc .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#kxfuoemslc .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#kxfuoemslc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="num.df" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">num.df</th>
+<th id="den.df" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">den.df</th>
+<th id="statistic" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">statistic</th>
+<th id="p.value" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">p.value</th>
+<th id="method" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">method</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="num.df">2</td>
+<td class="gt_row gt_right" headers="den.df">42.59001</td>
+<td class="gt_row gt_right" headers="statistic">0.2937516</td>
+<td class="gt_row gt_right" headers="p.value">0.7469597</td>
+<td class="gt_row gt_left" headers="method">One-way analysis of means (not assuming equal variances)</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>สรุปผล</strong> ผลจากการวิเคราะห์ Welch’s ANOVA พบว่า p-value เท่ากับ 0.747 ซึ่งมากกว่าระดับนัยสำคัญ 0.05 จึงตัดสินใจไม่ปฏิเสธสมมติฐานว่าค่าเฉลี่ยของเพศเมียเกาะ Torgersen Dream และ Biscoe ไม่แตกต่างกัน</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="สรปผลการวจย" class="level2">
+<h2 class="anchored" data-anchor-id="สรปผลการวจย">สรุปผลการวิจัย</h2>
+<p>จากการวิเคราะห์น้ำหนักตัว (body_mass_g) ของเพนกวินสายพันธู์ Adelie บนเกาะ Torgersen, Dream และ Biscoe โดยเปรียบเทียบเฉพาะเพศเดียวกัน (เพราะพบว่าเพศผู้และเพศเมียมีค่าเฉลี่ยต่างกันในทุกเกาะ) พบว่า</p>
+<ul>
+<li><strong>เพศผู้</strong> One-way Anova ได้ p-value = 0.989 ซึ่งมากกว่า 0.05 จึงไม่ปฏิเสธ <span class="math inline">\(H_0\)</span> สรุปว่าค่าเฉลี่ยน้ำหนักระหว่างเกาะไม่แตกต่างกัน</li>
+<li><strong>เพศเมีย:</strong> Welch’s ANOVA ได้ p-value = 0.747 ซึ่งมากกว่า 0.05 จึงไม่ปฏิเสธ <span class="math inline">\(H_0\)</span> สรุปว่าค่าเฉลี่ยน้ำหนักตัวระหว่างเกาะไม่แตกต่างกัน</li>
+</ul>
+<p><strong>ข้อสรุป:</strong> ที่ระดับนัยสำคัญ 0.05 ไม่พบความแตกต่างของน้ำหนักตัวเพนกวินสายพันธุ์ Adelie ระหว่างเกาะ Torgersen, Dream และ Biscoe ทั้งในเพศผู้และเพศเมีย</p>
 </section>
 
 </main>
